@@ -1,6 +1,6 @@
 # List of Features
 
-##Player's environment
+## Player's environment
 
 ### Account CRUD
 
