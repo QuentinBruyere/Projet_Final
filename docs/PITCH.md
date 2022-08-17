@@ -1,4 +1,22 @@
-## Mini-jeu RPG ##
+## ENG ##
+### Simple RPG game ###
+
+The game will be simple; one single player will have to kill ennemies of each level to access the next one.
+You'll be able to basically create an account, create a new game, save and load an old one.
+
+The code used will be HTML, CSS, JS, PHP and MySQL.
+
+## FR ##
+### Mini-jeu RPG ###
+
+Le jeu sera simple; un joueur solo devra éliminer tout les ennemies présent sur le niveau pour pouvoir passer au suivant.
+Vous pourrez créer un compte de Joueur, démarrer un nouvelle partie, sauvegarder ou en charger une anciene.
+
+Le jeu sera codé à l'aide des languages HTML, CSS, JS, PHP et MySQL.
+
+
+---------------------------------------------
+
 
 Le projet est un mini-jeu style RPG où le joueur devra tuer tout les ennemies 
 du niveau pous passer au suivant.
