@@ -5,12 +5,12 @@
 - GameModule
 - ArrowsModule
 - ActionsModule
-(- ControllerModule)
 
 ## Controllers
 
 - UserController
 - AdminController
+- StageController
 - PlayerController
 - EnnemiesController
 - ItemsController
@@ -19,6 +19,7 @@
 
 - PlayerManager
 - AdminManager
+- StageManager
 - PlayerManager
 - EnnemiesManager
 - ItemsManager
