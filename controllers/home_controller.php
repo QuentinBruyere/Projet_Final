@@ -6,7 +6,7 @@ class HomeController {
     
     public function displayHome(array $post) {
         
-        $path = $post["path"];
+        $path = "/home";
         
         require "./templates/layout.phtml";
         

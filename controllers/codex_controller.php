@@ -1,6 +1,6 @@
 <?php
 
-require "./managers/codex_manager.php";
+//require "./managers/codex_manager.php";
 
 class CodexController {
     
