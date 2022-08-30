@@ -1,0 +1,4 @@
+/home HomeController:displayHome
+/codex CodexController:displayCodex
+/game GameController:displayGame
+/save-game GameController:save
