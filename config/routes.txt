@@ -1,4 +1,5 @@
 / HomeController:displayHome
+/authenticate AuthenticateController:displayAuthenticate
 /sign-up SignUpController:displaySignUp
 /codex CodexController:displayCodex
 /the-game GameController:displayGame

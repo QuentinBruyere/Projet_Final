@@ -2,6 +2,9 @@
 @import "base/fonts";
 @import "base/layout";
 
+@import "modules/sideMenu";
+@import "modules/header";
+@import "modules/footer";
+
 @import "layouts/home";
-@import "layouts/sideMenu";
-@import "layouts/header";
+@import "layouts/authenticate";

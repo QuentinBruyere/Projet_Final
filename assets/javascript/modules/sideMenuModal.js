@@ -4,7 +4,7 @@ let menuSideModal = document.querySelector(".menu__sideModal");
 
 menuBtn.addEventListener("click", ()=>{
     menuBtnBar.classList.toggle("menu__btn--animate");
-    menuSideModal.classList.toggle("visible");
+    menuSideModal.classList.toggle("menu__sideModal--visible");
     console.log(menuSideModal.classList);
     
 });

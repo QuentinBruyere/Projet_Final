@@ -1,0 +1,30 @@
+<div class="authentication">
+    <h1>Authentication</h1>
+    <div class="signInFormCard">
+        <h2>Welcome back</h2>
+        <button class="signInForm__displayBtn authentication__form__displayBtn--hidden">
+            <span>Sign In</span>
+        </button>
+        <div class="signInCurtain">
+            <?php
+                $signUpController = new AuthenticateController();
+                $signUpController->checkSignInFields();
+            ?>
+        </div>
+    </div>
+    <div class="signUpFormCard">
+        <h2>New Player ?</h2>
+        <button class="signUpForm__displayBtn">
+            <span>Sign Up</span>
+        </button>
+        <div class="signUpCurtain authentication__form--hidden">
+            <?php
+                $signUpController = new AuthenticateController();
+                $signUpController->checkSignUpFields();
+            ?>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="./assets/javascript/modules/authenticationDisplay.js"></script>
+
+

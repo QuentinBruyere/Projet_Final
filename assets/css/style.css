@@ -28,13 +28,127 @@ h1 {
   font-style: normal;
   font-size: 5rem; }
 
-p, a, h2, li {
+p, a, h2, li, input, label, button {
   font-family: PressStart2P;
   font-weight: normal;
   font-style: normal; }
 
 h2 {
   font-size: 2rem; }
+
+.menu__sideModal {
+  background-color: #333;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: -750px;
+  top: 0;
+  width: 750px;
+  height: 100vh;
+  padding: 300px 0;
+  padding-bottom: 100px;
+  font-size: 4rem;
+  opacity: 0.5;
+  z-index: 998;
+  transition: all .75s ease-out 0s; }
+  .menu__sideModal nav {
+    text-align: center;
+    position: relative; }
+    .menu__sideModal nav ul li {
+      list-style: none;
+      margin-bottom: 2rem; }
+      .menu__sideModal nav ul li:last-of-type {
+        margin-bottom: 0; }
+  .menu__sideModal a {
+    text-decoration: none;
+    color: white; }
+    .menu__sideModal a:hover {
+      color: red; }
+  .menu__sideModal .menu__sideModal__account {
+    font-size: 3rem; }
+  .menu__sideModal .menu__sideModal__aboutUs {
+    font-size: 1.5rem; }
+
+.menu__sideModal--visible {
+  left: 0;
+  opacity: 0.95; }
+
+header {
+  background-color: #555;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 130px;
+  position: sticky;
+  top: 0px;
+  z-index: 997; }
+  header .menu__btn {
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    width: 130px;
+    height: 130px;
+    padding: 35px;
+    cursor: pointer;
+    /*.menu__btn--animate {
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: relative;
+        
+        &::before {
+            content:"";
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            position: absolute;
+        }
+        
+        &::after {
+            content:"";
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            position: absolute;
+        }
+    }*/ }
+    header .menu__btn .menu__btn__bar {
+      width: 100%;
+      height: 5px;
+      background-color: #fff;
+      position: relative;
+      transition: all .75s ease-out 0s; }
+      header .menu__btn .menu__btn__bar::before {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: absolute;
+        top: 20px; }
+      header .menu__btn .menu__btn__bar::after {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 20px; }
+    header .menu__btn a {
+      margin: 0 40px; }
+      header .menu__btn a img {
+        height: 50px; }
+  header .menu__btn--animate {
+    transform: rotate(-0.5turn); }
+  header .menu__homeBtn img {
+    height: 100%; }
+  header .account {
+    display: flex;
+    align-items: center; }
+    header .account a {
+      margin: 0 32.5px; }
+      header .account a img {
+        height: 65px; }
 
 footer {
   text-align: center; }
@@ -166,118 +280,56 @@ body {
         height: 400px;
         color: red; }
 
-.menu__sideModal {
-  background-color: #333;
+.authentication {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-between;
   align-items: center;
-  position: absolute;
-  left: -750px;
-  top: 0;
-  width: 750px;
-  height: 100vh;
-  padding: 300px 0;
-  padding-bottom: 100px;
-  font-size: 4rem;
-  opacity: 0.5;
-  z-index: 998;
-  transition: all .75s ease-out 0s; }
-  .menu__sideModal nav {
-    text-align: center;
-    position: relative; }
-    .menu__sideModal nav ul li {
-      list-style: none;
-      margin-bottom: 2rem; }
-      .menu__sideModal nav ul li:last-of-type {
-        margin-bottom: 0; }
-  .menu__sideModal a {
-    text-decoration: none;
-    color: white; }
-    .menu__sideModal a:hover {
-      color: red; }
-  .menu__sideModal .menu__sideModal__account {
-    font-size: 3rem; }
-  .menu__sideModal .menu__sideModal__aboutUs {
-    font-size: 1.5rem; }
-
-.visible {
-  left: 0;
-  opacity: 0.95; }
-
-header {
-  background-color: #555;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  height: 130px;
-  position: sticky;
-  top: 0px;
-  z-index: 997; }
-  header .menu__btn {
+  margin: 2rem 1rem; }
+  .authentication h1 {
+    font-size: 6rem; }
+  .authentication h2 {
+    font-size: 2.75rem;
+    margin: 2rem 0; }
+  .authentication button {
+    font-size: 3rem;
+    width: 100%;
+    height: 100px; }
+  .authentication form {
     display: flex;
-    align-items: center;
-    z-index: 999;
-    width: 130px;
-    height: 130px;
-    padding: 35px;
-    cursor: pointer;
-    /*.menu__btn--animate {
-        width: 100%;
-        height: 5px;
-        background-color: #fff;
-        position: relative;
-        
-        &::before {
-            content:"";
-            width: 100%;
-            height: 5px;
-            background-color: #fff;
-            position: absolute;
-        }
-        
-        &::after {
-            content:"";
-            width: 100%;
-            height: 5px;
-            background-color: #fff;
-            position: absolute;
-        }
-    }*/ }
-    header .menu__btn .menu__btn__bar {
+    flex-flow: column nowrap; }
+    .authentication form label {
+      margin: 1rem 0;
+      font-size: 1.5rem; }
+    .authentication form input {
+      margin-bottom: 1rem;
       width: 100%;
-      height: 5px;
-      background-color: #fff;
-      position: relative;
-      transition: all .75s ease-out 0s; }
-      header .menu__btn .menu__btn__bar::before {
-        content: "";
-        width: 100%;
-        height: 5px;
-        background-color: #fff;
-        position: absolute;
-        top: 20px; }
-      header .menu__btn .menu__btn__bar::after {
-        content: "";
-        width: 100%;
-        height: 5px;
-        background-color: #fff;
-        position: absolute;
-        bottom: 20px; }
-    header .menu__btn a {
-      margin: 0 40px; }
-      header .menu__btn a img {
-        height: 50px; }
-  header .menu__btn--animate {
-    transform: rotate(-0.5turn); }
-  header .menu__homeBtn img {
-    height: 100%; }
-  header .account {
-    display: flex;
-    align-items: center; }
-    header .account a {
-      margin: 0 32.5px; }
-      header .account a img {
-        height: 65px; }
+      height: 100px;
+      font-size: 3rem; }
+    .authentication form .signInButton, .authentication form .signUpButton {
+      background-color: #333;
+      margin: 1.5rem 0; }
+  .authentication .signInForm__displayBtn, .authentication .signUpForm__displayBtn {
+    transition: all .15s linear 0s;
+    max-height: 100px;
+    overflow: auto; }
+  .authentication .signInFormCard, .authentication .signUpFormCard {
+    width: 80%;
+    text-align: left;
+    margin: 50px 0; }
+    .authentication .signInFormCard .authentication__form--hidden, .authentication .signUpFormCard .authentication__form--hidden {
+      max-height: 0px;
+      overflow: hidden; }
+    .authentication .signInFormCard .authentication__form__displayBtn--hidden, .authentication .signUpFormCard .authentication__form__displayBtn--hidden {
+      max-height: 0px;
+      overflow: hidden;
+      border: none; }
+  .authentication .signInCurtain {
+    transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+    max-height: 500px;
+    overflow: auto; }
+  .authentication .signUpCurtain {
+    transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+    max-height: 700px;
+    overflow: auto; }
 
 /*# sourceMappingURL=style.css.map */
