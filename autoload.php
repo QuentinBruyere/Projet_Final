@@ -3,6 +3,8 @@
 // s/o Mari
 
 require "controllers/home_controller.php";
+require "controllers/signup_controller.php";
+require "controllers/signin_controller.php";
 require "controllers/codex_controller.php";
 require "controllers/game_controller.php";
 require "services/router.php";

@@ -1,18 +1,15 @@
 <?php
 
-class GameManager {
+//pb d'abstract manager ? 
+
+//require "abstract_manager.php";
+
+class GameManager extends AbstractManager{
     
     function updateGame() :string{
     
-        //Getting the DataBase
-        $db = new PDO(
-        'mysql:host=db.3wa.io;port=3306;dbname=quentinbruyere_Game_Test',
-        'quentinbruyere',
-        'fde1ec0644a19117c0dfa9431a58c26b'
-        );
-        
         //Getting the "content" datas from the form, and then send it to the DataBase
-        $query = $db->prepare('INSERT INTO Saves (playerX, playerY) VALUES (:playerX, :playerY)');
+        $query = $this->db->prepare('INSERT INTO Saves (playerX, playerY) VALUES (:playerX, :playerY)');
         $parameters = [
             'playerX' => $_POST["playerX"],
             'playerY' => $_POST["playerY"]

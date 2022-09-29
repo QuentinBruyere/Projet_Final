@@ -1,0 +1,65 @@
+body{
+    display : block;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+h1 {
+    font-family: Upheaval;
+    font-weight:normal;
+    font-style:normal;
+    font-size: 5rem;
+}
+
+p, a, h2, li {
+    font-family: PressStart2P;
+    font-weight:normal;
+    font-style:normal;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+footer {
+    text-align: center;
+    
+    .footerMenu {
+        display: flex;
+        justify-content: center;
+        
+        ul {
+            display: flex;
+            flex-flow: row wrap;
+            
+            li:first-of-type {
+                border-left: none;
+            }
+            
+            li {
+                font-size: 1.5rem;
+                list-style: none;
+                padding: 0 1rem;
+                margin-bottom: 1rem;
+                border-left: 5px solid #fff;
+                text-align: left;
+                
+                a:hover {
+                    color: #999;
+                }
+            }
+        }
+    }
+    
+    p {
+        font-size: 1rem;
+        color: #888;
+    }
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+    }
+}

@@ -6,7 +6,7 @@ class GameController {
     
     public function displayGame(array $post) {
         
-        $path = $post["path"];
+        $path = "/game";
         
         require "./templates/layout.phtml";
         

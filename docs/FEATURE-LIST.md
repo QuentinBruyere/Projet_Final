@@ -1,35 +1,48 @@
-# FEATURE-LIST #
-  
-Le site sera composé de 4 pages;  
-- Home  
-- Log in / Sign in  
-- Admin
-- Game
-      
+# List of Features
 
-EXEMPLE DE FEATURE-LIST PLS
+## Player's environment
 
-## FRONT ##
+### Account CRUD
+
+- Create a new account
+- Read personnal informations of your account
+- Update informations of your account
+- Delete your account
+
+### Game CRU
+
+- Create a new game
+- Load your latest game
+- Create a new game over the latest
+
+## Admin's environnement
+
+### Accounts CRUD
+
+- Create a new Admin account
+- Read the list of Player Accounts an informations
+- Update Player Accounts an informations
+- Delete an account
+
+### Player Update
+
+- Update Player's specs, in-game image and icon
+
+### Items index CRUD
+
+- Create an item with specs, in-game image and icon
+- Read the list of items with specs, in-game image and icon
+- Update items specs, in-game image and icon
+- Delete an item
 
 
-  
-**Fonctions** :  
-- Créer un User  
-- Se connecter  
-- Se déconnecter 
+### Ennemies index CRUD
 
-- Page d'accueil  
-  
-- Créer une Recipe  
-- Modifier une Recipe  
-- Supprimer une Recipe   
-- Lire une Recipe
+- Create an ennemy with specs, in-game image and icon
+- Read the list of ennemies with specs, in-game image and icon
+- Update ennemies specs, in-game image and icon
+- Delete an ennemy
 
+### Stages CRUD
 
-## BACK (DB) ## 
-Je vais avoir besoin :  
-- d'une table d'utilisateurs qui contient leur username et leur password.  
-- d'une table des recettes reliés à leur créateur  
-      
-users : *id*, *username*, *password*  
-recipe : *id*, *author_id*, *title*, *content*  
+- Create a Stage Level with type and number of ennemies, background image

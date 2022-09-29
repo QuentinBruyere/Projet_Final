@@ -1,6 +1,8 @@
 <?php
 
-class CodexManager {
+require "abstract_manager.php";
+
+class CodexManager extends AbstractManager {
     
     function updateGame() :string{
     

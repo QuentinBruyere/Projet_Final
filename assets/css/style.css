@@ -1,0 +1,283 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+@font-face {
+  font-family: 'Upheaval';
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.eot");
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.eot?#iefix") format("embedded-opentype"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.woff2") format("woff2"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.woff") format("woff"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'PressStart2P';
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.eot");
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.eot?#iefix") format("embedded-opentype"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.woff2") format("woff2"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.woff") format("woff"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+body {
+  display: block;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem; }
+
+h1 {
+  font-family: Upheaval;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 5rem; }
+
+p, a, h2, li {
+  font-family: PressStart2P;
+  font-weight: normal;
+  font-style: normal; }
+
+h2 {
+  font-size: 2rem; }
+
+footer {
+  text-align: center; }
+  footer .footerMenu {
+    display: flex;
+    justify-content: center; }
+    footer .footerMenu ul {
+      display: flex;
+      flex-flow: row wrap; }
+      footer .footerMenu ul li:first-of-type {
+        border-left: none; }
+      footer .footerMenu ul li {
+        font-size: 1.5rem;
+        list-style: none;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid #fff;
+        text-align: left; }
+        footer .footerMenu ul li a:hover {
+          color: #999; }
+  footer p {
+    font-size: 1rem;
+    color: #888; }
+  footer a {
+    color: #fff;
+    text-decoration: none; }
+
+body {
+  background-color: #222; }
+
+.welcomeCard {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  position: relative; }
+  .welcomeCard .welcomeCard_background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../medias/imgs/homeScreenShot.png");
+    background-position: center;
+    background-size: cover;
+    opacity: .3; }
+  .welcomeCard .welcomeCard__text {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center; }
+    .welcomeCard .welcomeCard__text p {
+      font-size: 1.75rem;
+      margin-bottom: 20px; }
+    .welcomeCard .welcomeCard__text h1 {
+      font-size: 6.25rem;
+      margin-bottom: 80px; }
+    .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn {
+      display: flex;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      cursor: pointer;
+      text-transform: uppercase;
+      border-style: solid;
+      border-width: 20px;
+      border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch; }
+      .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn:active {
+        top: 2px; }
+      .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a {
+        color: #fff;
+        font-size: 3rem;
+        text-decoration: none;
+        position: relative;
+        margin: -20px -20px;
+        padding: 40px 50px;
+        background: linear-gradient(135deg, transparent 10px, #000000 0) top left, linear-gradient(225deg, transparent 10px, #000000 0) top right, linear-gradient(315deg, transparent 10px, #000000 0) bottom right, linear-gradient(45deg, transparent 10px, #000000 0) bottom left;
+        background-size: 50% 50%;
+        background-repeat: no-repeat;
+        background-image: radial-gradient(circle at 0 0, rgba(204, 0, 0, 0) 14px, #000000 15px), radial-gradient(circle at 100% 0, rgba(204, 0, 0, 0) 14px, #000000 15px), radial-gradient(circle at 100% 100%, rgba(204, 0, 0, 0) 14px, #000000 15px), radial-gradient(circle at 0 100%, rgba(204, 0, 0, 0) 14px, #000000 15px); }
+        .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a:hover {
+          color: #999; }
+        .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a:active {
+          color: #555; }
+
+.introduce {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 50px 10px; }
+  .introduce h2 {
+    font-size: 2.5rem;
+    margin: 0 5rem;
+    line-height: 3rem;
+    text-align: center; }
+  .introduce__1 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 75px; }
+    .introduce__1 img {
+      width: 400px;
+      height: 400px; }
+  .introduce__2 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 75px; }
+    .introduce__2 img {
+      width: 400px;
+      height: 400px; }
+  .introduce__3 {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center; }
+    .introduce__3__img {
+      display: flex;
+      flex-flow: column nowrap; }
+      .introduce__3__img__victoryManSilhouette {
+        width: 400px;
+        height: 400px;
+        color: #000; }
+      .introduce__3__img__hill {
+        width: 400px;
+        height: 400px;
+        color: red; }
+
+.menu__sideModal {
+  background-color: #333;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: -750px;
+  top: 0;
+  width: 750px;
+  height: 100vh;
+  padding: 300px 0;
+  padding-bottom: 100px;
+  font-size: 4rem;
+  opacity: 0.5;
+  z-index: 998;
+  transition: all .75s ease-out 0s; }
+  .menu__sideModal nav {
+    text-align: center;
+    position: relative; }
+    .menu__sideModal nav ul li {
+      list-style: none;
+      margin-bottom: 2rem; }
+      .menu__sideModal nav ul li:last-of-type {
+        margin-bottom: 0; }
+  .menu__sideModal a {
+    text-decoration: none;
+    color: white; }
+    .menu__sideModal a:hover {
+      color: red; }
+  .menu__sideModal .menu__sideModal__account {
+    font-size: 3rem; }
+  .menu__sideModal .menu__sideModal__aboutUs {
+    font-size: 1.5rem; }
+
+.visible {
+  left: 0;
+  opacity: 0.95; }
+
+header {
+  background-color: #555;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 130px;
+  position: sticky;
+  top: 0px;
+  z-index: 997; }
+  header .menu__btn {
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    width: 130px;
+    height: 130px;
+    padding: 35px;
+    cursor: pointer;
+    /*.menu__btn--animate {
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: relative;
+        
+        &::before {
+            content:"";
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            position: absolute;
+        }
+        
+        &::after {
+            content:"";
+            width: 100%;
+            height: 5px;
+            background-color: #fff;
+            position: absolute;
+        }
+    }*/ }
+    header .menu__btn .menu__btn__bar {
+      width: 100%;
+      height: 5px;
+      background-color: #fff;
+      position: relative;
+      transition: all .75s ease-out 0s; }
+      header .menu__btn .menu__btn__bar::before {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: absolute;
+        top: 20px; }
+      header .menu__btn .menu__btn__bar::after {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 20px; }
+    header .menu__btn a {
+      margin: 0 40px; }
+      header .menu__btn a img {
+        height: 50px; }
+  header .menu__btn--animate {
+    transform: rotate(-0.5turn); }
+  header .menu__homeBtn img {
+    height: 100%; }
+  header .account {
+    display: flex;
+    align-items: center; }
+    header .account a {
+      margin: 0 32.5px; }
+      header .account a img {
+        height: 65px; }
+
+/*# sourceMappingURL=style.css.map */

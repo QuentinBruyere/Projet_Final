@@ -2,10 +2,39 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>World Waste War</title>
+    <!--à quoi ça devait servir ça ? à preload avant la font avant la page ?-->
+    <!--<link rel="preload" href="./assets/fonts/UpheavalTT-BRK-.woff2" as="font" type="font/woff2" crossorigin>-->
+    <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
 </head>
 <body>
+    <header>
+        <div class="menu__btn">
+            <!--<a class="menu__btn" title="menu" href="#">
+                <img src="./assets/medias/icons/menu-50.png">
+            </a>-->
+            <div class="menu__btn__bar"></div>
+            <!--<div class="menu__btn--animate"></div>-->
+        </div>
+        <div class="menu__sideModal">
+            <nav>
+                <ul>
+                    <li class="menu__sideModal__home"><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/">Home</a></li>
+                    <li class="menu__sideModal__game"><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/the-game">Game</a></li>
+                    <li class="menu__sideModal__codex"><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/codex">Codex</a></li>
+                </ul>
+            </nav>
+            <a class="menu__sideModal__account" href="#">Account</a>
+            <a class="menu__sideModal__aboutUs" href="#">About Us</a>
+        </div>
+        <a class="menu__homeBtn" href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/"><img src="./assets/medias/imgs/Logo-WWW-Mae.png"></a>
+        <div class="account">
+            <a title="Account" href="#">
+                <img src="./assets/medias/icons/account-48.png">
+            </a>
+        </div>
+    </header>
+    
     <?php 
         
         $path = substr($path, 1);
@@ -13,5 +42,18 @@
         require $path . "_template.phtml";
     
     ?>
+    <footer>
+        <div class="footerMenu">
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Data preferences</a></li>
+                </ul>
+            </nav>
+        </div>
+        <p>Icons by <a target="_blank" href="https://icons8.com">Icons8</a></p>
+    </footer>
+    <script type="text/javascript" src="./assets/javascript/script.js"></script>
 </body>
 </html>

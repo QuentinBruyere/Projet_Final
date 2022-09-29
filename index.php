@@ -14,7 +14,7 @@ try {
     {
         $request = "/";
     }
-
+    
     $router->route($routes, $request);
 }
 catch(Exception $e)
