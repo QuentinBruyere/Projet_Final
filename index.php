@@ -1,5 +1,7 @@
 <?php
 
+//S/O Mari Doucet, our PHP teacher + the .htaccess file
+
 require "autoload.php";
 
 try {

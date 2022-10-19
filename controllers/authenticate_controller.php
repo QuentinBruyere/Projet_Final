@@ -1,7 +1,5 @@
 <?php
 
-//require "./managers/signup_manager.php";
-
 class AuthenticateController {
     
     public function displayAuthenticate(array $post) {
@@ -14,13 +12,11 @@ class AuthenticateController {
     
     public function checkSignUpFields() {
         
-        //Check if fields are empty and if yes, ask for username and password again
-        //L'attribut required ne suffit pas ? Est-ce que le faire soit même c'est le seul moyen de pouvoir
-        //configurer le style d'un form pas bien rempli ? 
+        //Check if fields are empty or wrong. If yes, ask for username and password again
+        //Did a self made "required" process
         if(isset($_POST["username"]) && $_POST["username"] !== ''){
             if(isset($_POST["password"]) && $_POST["password"] !== ''){
                 if(isset($_POST["email"]) && $_POST["email"] !== ''){
-                    echo "Tout les champs sont remplis | ";
                     
                     $userManager = new UserManager();
                     $dbUser = $userManager->getUserByUsername();
@@ -36,42 +32,42 @@ class AuthenticateController {
                     }
                     
                 }else{
-                    echo "email manquant";
+                    //email missing
                     require "./templates/signupForm_template.phtml";
                 }
             }else{
                 if(isset($_POST["email"]) && $_POST["email"] !== ''){
-                    echo "password manquant";
+                    //password missing
                     require "./templates/signupForm_template.phtml";
                 }else{
-                    echo "password et email manquants";
+                    //email and password missing
                     require "./templates/signupForm_template.phtml";
                 }
             }
         }else if(isset($_POST["password"]) && $_POST["password"] !== ''){
             if(isset($_POST["email"]) && $_POST["email"] !== ''){
-                echo "username manquant";
+                //username missing
                 require "./templates/signupForm_template.phtml";
             }else{
-                echo "username et email manquants";
+                //username and email missing
                 require "./templates/signupForm_template.phtml";
             }
         }else if(isset($_POST["email"]) && $_POST["email"] !== ''){
             if(isset($_POST["username"]) && $_POST["username"] !== ''){
-                echo "password manquant";
+                //password missing
                 require "./templates/signupForm_template.phtml";
             }else{
                 if(isset($_POST["password"]) && $_POST["password"] !== ''){
-                    echo "username manquant";
+                    //username missing
                     require "./templates/signupForm_template.phtml";
                 }else{
-                    echo "username et password manquants";
+                    //username and password missing
                     require "./templates/signupForm_template.phtml";
                 }
             }
         }else if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"])){
             if($_POST["username"] === '' && $_POST["password"] === '' && $_POST["email"] === ''){
-                echo "aucuns champs remplis";
+                //all fields are empty
                 require "./templates/signupForm_template.phtml";
             }
         }else{
@@ -82,48 +78,160 @@ class AuthenticateController {
     
     public function checkSignInFields() {
         
-        //Check if fields are empty and if yes, ask for username and password again
+         //Check if fields are empty and if yes, ask for username and password again
         if(isset($_POST["username"]) && $_POST["username"] !== ''){
             if(isset($_POST["password"]) && $_POST["password"] !== ''){
                 
-                //On appelle le manager pour savoir si le user existe par son Username
+                //Check if the User exist in the DB
                 $userManager = new UserManager();
                 $user = $userManager->getUserByUsername();
                 
-                //Si SQL nous renvoi un tableau vide, aucun user n'est associé à ce Username
+                //If we get an empty array, the User doesn't exist
                 if(!empty($user)){
                     if($_POST["password"] === $user["password"]){
+                        //if the user exist and the password is correct, sign in it and redirect at the homepage
+                        
+                        session_start();
+                        
+                        $_SESSION["username"] = $user["username"];
+                        $_SESSION["mail"] = $user["mail"];
+                        $_SESSION["connected"] = true;
+                        
+                        header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/');
+                        exit;
+                    }else{
+                        
+                        //Incorrect password
+                        
+                        session_start();
+                        
+                        $_SESSION["username"] = $_POST["username"];
+                        $_SESSION["password"] = $_POST["password"];
+                        $_SESSION["connected"] = false;
+                        
+                        header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                        exit;
+                    }
+                //To increase security, I don't tell the user if the User exist in DB
+                }else{
+                    
+                    //Username doesn't exist
+                    
+                    session_start();
+                    
+                    $_SESSION["username"] = $_POST["username"];
+                    $_SESSION["password"] = $_POST["password"];
+                    $_SESSION["connected"] = false;
+                    
+                    header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                    exit;
+                }
+                
+            }else{
+                
+                //password missing
+                
+                session_start();
+                
+                $_SESSION["username"] = $_POST["username"];
+                $_SESSION["password"] = false;
+                $_SESSION["connected"] = false;
+                
+                header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                exit;
+            }
+        }else if(isset($_POST["password"]) && $_POST["password"] !== ''){
+            
+            //username missing
+            
+            session_start();
+            
+            $_SESSION["password"] = $_POST["password"];
+            $_SESSION["username"] = false;
+            $_SESSION["connected"] = false;
+            
+            header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+            exit;
+        }else if(isset($_POST["username"]) && isset($_POST["password"])){
+            if($_POST["username"] === '' && $_POST["password"] === ''){
+                
+                //username and password missing
+                
+                session_start();
+                
+                $_SESSION["username"] = false;
+                $_SESSION["password"] = false;
+                $_SESSION["connected"] = false;
+                
+                header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                exit;
+            }
+        }else{
+            header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+            exit;
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        // ANCIEN CHECK SIGNINFIELDS
+        
+        //Check if fields are empty and if yes, ask for username and password again
+        /*if(isset($_POST["username"]) && $_POST["username"] !== ''){
+            if(isset($_POST["password"]) && $_POST["password"] !== ''){*/
+                
+                //On appelle le manager pour savoir si le user existe par son Username
+                /*$userManager = new UserManager();
+                $user = $userManager->getUserByUsername();*/
+                
+                //Si SQL nous renvoi un tableau vide, aucun user n'est associé à ce Username
+                /*if(!empty($user)){
+                    if($_POST["password"] === $user["password"]){*/
                         //Si le user existe dans la DB et que le Password fourni dans le formulaire correspond à celui dans la DB
                         //Le user est alors connecté
-                        echo "You are connected";
-                        echo "Bonjour " . $user["username"] . " !";
+                        
+                        /*$_SESSION["connected"] = true;
+                        $_SESSION["username"] = $user["username"];
+                        $_SESSION["mail"] = $user["mail"];
+                        
+                        header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/');
+                        exit;
                     }else{
                         echo "Your Username or Password is incorrect, please try again (password)";
+                        $_SESSION["connected"] = false;
                         require "./templates/signin_template.phtml";
-                    }
+                    }*/
                 /*Pour établir un niveau de sécurité en plus je n'indique pas si le user existe ou non dans la DB
                 Cela peut-être flou pour l'utilisateur (ne sait plus si il a créé un compte) mais cela empêche aussi
                 de vérifier avec n'importe quelle username si quelqu'un à créé un compte sur ce site*/
-                }else{
+                /*}else{
                     echo "Your Username or Password is incorrect, please try again (username don't exist)";
+                    $_SESSION["connected"] = false;
                     require "./templates/signin_template.phtml";
                 }
                 
             }else{
                 echo "password manquant";
+                $_SESSION["connected"] = false;
                 require "./templates/signin_template.phtml";
             }
         }else if(isset($_POST["password"]) && $_POST["password"] !== ''){
             echo "username manquant";
+            $_SESSION["connected"] = false;
             require "./templates/signin_template.phtml";
         }else if(isset($_POST["username"]) && isset($_POST["password"])){
             if($_POST["username"] === '' && $_POST["password"] === ''){
                 echo "username et password manquants";
+                $_SESSION["connected"] = false;
                 require "./templates/signin_template.phtml";
             }
         }else{
             require "./templates/signin_template.phtml";
-        }
+        }*/
         
     }
     

@@ -1,7 +1,5 @@
 <?php
 
-//require "./managers/codex_manager.php";
-
 class CodexController {
     
     public function displayCodex(array $post) {

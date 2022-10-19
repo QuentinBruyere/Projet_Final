@@ -6,10 +6,55 @@
             <span>Sign In</span>
         </button>
         <div class="signInCurtain">
-            <?php
-                $signUpController = new AuthenticateController();
-                $signUpController->checkSignInFields();
+            <?php var_dump($_SESSION);
+            var_dump($_POST);
             ?>
+            <form method="POST" class="signInForm" action="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/sign-in">
+                <?php
+                
+                /*if(isset($_SESSION["username"]) || isset($_SESSION["password"])){
+                    if(!$_SESSION["username"] || !$_SESSION["password"]){
+                        echo '<p class="red">Wrong Username or Password</p>';
+                    }
+                }*/
+                
+                ?>
+                <label for="username">Username</label>
+                <input type="text" name="username" class="signInUsername <?php 
+                
+                //if the username is false show the username input as wrong
+                if(isset($_SESSION["username"])) {
+                    if(!$_SESSION["username"]) {
+                        echo "red";
+                        unset($_SESSION["username"]);
+                    }
+                }
+                
+                ?>" 
+                <?php
+                
+                //if the user tried to connect, save its username in the username input
+                if(isset($_SESSION["username"])){
+                    echo 'value="' . $_SESSION["username"] . '"';
+                    unset($_SESSION["username"]);
+                }
+                
+                ?>/>
+                <?php var_dump($_SESSION); ?>
+                <label for="password">Password</label>
+                <input type="password" name="password" class="signInPassword <?php
+                
+                //if the password is false show the username input as wrong
+                if(isset($_SESSION["password"])) {
+                    if(!$_SESSION["password"]) {
+                        echo "red";
+                        unset($_SESSION["password"]);
+                    }
+                }
+                
+                ?>"/>
+                <input type="submit" value="Sign In" class="signInButton"/>
+            </form>
         </div>
     </div>
     <div class="signUpFormCard">

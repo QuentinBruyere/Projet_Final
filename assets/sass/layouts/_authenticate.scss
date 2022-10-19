@@ -1,3 +1,5 @@
+/*----------- layouts -------   AUTHENTICATION   -----------------------------*/
+
 .authentication {
     display: flex;
     flex-flow: column nowrap;
@@ -61,6 +63,10 @@
             max-height: 0px;
             overflow: hidden;
             border: none;
+        }
+        
+        .red {
+            border: 4px solid red;
         }
     }
     

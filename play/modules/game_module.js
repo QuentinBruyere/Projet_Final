@@ -7,7 +7,7 @@ class GameModule {
 
 /*-------   INITIALISATION   --------*/
 
-    //We're setting the variables the class needs
+    //Set up the variables the class needs
     constructor(gameArea, stageBackground, ctx, saveButton) {
         this.gameArea = document.querySelector('.game');
         this.stageBackground = document.querySelector('.stageBackground');
@@ -44,8 +44,6 @@ class GameModule {
         document.addEventListener("keydown", this.MovePlayer);
         this.saveButton.addEventListener("click", this.Save);
     }
-
-    // REDEFINIR this pour avant l'eventListener pour péter son scope
     
 /*---------   PROCESSING   ----------*/
     
@@ -71,6 +69,7 @@ class GameModule {
         this.DisplayPlayer();
     }
     
+    //Move the Player (red square) when a keyboard's arrow is pressed
     MovePlayer(event) {
         console.log(event.code);
         switch(event.code){
@@ -121,6 +120,7 @@ class GameModule {
     }
     
     Save(){
+        //When the Save button is clicked, create a form to send the player's position (x and y)
         let formData = new FormData();
         
         formData.append('playerX', player.x);
@@ -131,8 +131,8 @@ class GameModule {
             body: formData
         };
         
-        fetch('https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/save-game', options)
-            .then(console.log("done"));
+        
+        fetch('https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/save-game', options);
         
     }
     

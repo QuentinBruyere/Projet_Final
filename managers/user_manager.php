@@ -1,13 +1,10 @@
 <?php
 
-require "abstract_manager.php";
-
 class UserManager extends AbstractManager {
     
     public function getUserByUsername() :array{
         
-        //JE VEUX CHERCHER DANS MA DB SI LE USER EXISTE
-        
+        //Check if the user exist in the DB
         //Getting the "content" datas from the form, and then send it to the DataBase
         $query = $this->db->prepare('SELECT * FROM players WHERE players.username = :username');
         $parameters = [

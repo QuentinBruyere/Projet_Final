@@ -1,0 +1,15 @@
+<div class="account">
+    <h1>ACCOUNT</h1>
+    <form class="account_form">
+        <label for="username">Username</label>
+        <input class="account_form_username" type="text" name="username" value='<?= $_SESSION["username"] ?>' disabled/>
+        <label for="email">Email</label>
+        <input class="account_form_email" type="text" name="email" value='<?= $_SESSION["mail"] ?>' disabled/>
+        <label for="password">Password</label>
+        <input class="account_form_password" type="text" name="password" disabled/>
+        <input class="account_form_submit" type="submit" value="Save Changes" disabled/>
+    </form>
+    <button class="account_editButton">EDIT</button>
+    <a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/disconnect" title="Disconnect">Disconnect</a>
+</div>
+<script type="text/javascript" src="./assets/javascript/modules/accountEditor.js"></script>

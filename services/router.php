@@ -1,6 +1,6 @@
 <?php
 
-// s/o Mari
+//S/O Mari Doucet, our PHP teacher
 
 class Router {
     
@@ -10,7 +10,7 @@ class Router {
         
         $routeData = explode("/", $request);
         
-        $route["path"] = "/".$routeData[1]; 
+        $route["path"] = "/".$routeData[1];
         
         if(count($routeData) > 2) 
         {
@@ -55,8 +55,6 @@ class Router {
                 }
             }
         }
-        
-        //echo $route["path"];
         
         if(!$routeFound)
         {

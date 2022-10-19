@@ -1,3 +1,5 @@
+/*----------- modules ----------   SIDEMENU   --------------------------------*/
+
 .menu__sideModal {
     background-color: #333;
     display: flex;
@@ -20,7 +22,9 @@
     nav {
         text-align: center;
         position: relative;
+        
         ul {
+            
             li {
                 list-style: none;
                 margin-bottom: 2rem;

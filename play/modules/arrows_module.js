@@ -47,7 +47,6 @@ class ArrowsModule {
     */
     
     ArrowUpEvent(event) {
-        //$this.arrowUp.style.backgroundColor = "red";
         //creating a fake Arrow Up Keytouch Event
         let fakeUpArrow = new KeyboardEvent('keydown', {"code": 'ArrowUp'});
         //send it to the document to make MovePlayer method react

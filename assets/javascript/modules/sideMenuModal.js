@@ -1,3 +1,5 @@
+//Show/hide the SideMenu Modal
+
 let menuBtn = document.querySelector(".menu__btn");
 let menuBtnBar = document.querySelector(".menu__btn__bar");
 let menuSideModal = document.querySelector(".menu__sideModal");

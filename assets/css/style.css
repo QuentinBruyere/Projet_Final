@@ -1,8 +1,11 @@
+/*#####################-----------   BASE   -----------#######################*/
+/*----------- base --------------   RESET   ----------------------------------*/
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box; }
 
+/*----------- base --------------   FONTS   ----------------------------------*/
 @font-face {
   font-family: 'Upheaval';
   src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.eot");
@@ -15,27 +18,29 @@
   src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.eot?#iefix") format("embedded-opentype"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.woff2") format("woff2"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.woff") format("woff"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.ttf") format("truetype");
   font-weight: 500;
   font-style: normal; }
+/*----------- base --------------   LAYOUT   ---------------------------------*/
 body {
   display: block;
   width: 100vw;
   justify-content: center;
   align-items: center;
   font-size: 2rem; }
+  body h1 {
+    font-family: Upheaval;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 5rem; }
+  body h2 {
+    font-size: 2rem; }
+  body p, body a, body h2, body h3, body li, body input, body label, body button {
+    font-family: PressStart2P;
+    font-weight: normal;
+    font-style: normal; }
+  body footer {
+    margin-bottom: 2rem; }
 
-h1 {
-  font-family: Upheaval;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 5rem; }
-
-p, a, h2, li, input, label, button {
-  font-family: PressStart2P;
-  font-weight: normal;
-  font-style: normal; }
-
-h2 {
-  font-size: 2rem; }
-
+/*#####################----------   MODULES   ---------#######################*/
+/*----------- modules ----------   SIDEMENU   --------------------------------*/
 .menu__sideModal {
   background-color: #333;
   display: flex;
@@ -75,6 +80,7 @@ h2 {
   left: 0;
   opacity: 0.95; }
 
+/*----------- modules -----------   HEADER   ---------------------------------*/
 header {
   background-color: #555;
   display: flex;
@@ -91,29 +97,7 @@ header {
     width: 130px;
     height: 130px;
     padding: 35px;
-    cursor: pointer;
-    /*.menu__btn--animate {
-        width: 100%;
-        height: 5px;
-        background-color: #fff;
-        position: relative;
-        
-        &::before {
-            content:"";
-            width: 100%;
-            height: 5px;
-            background-color: #fff;
-            position: absolute;
-        }
-        
-        &::after {
-            content:"";
-            width: 100%;
-            height: 5px;
-            background-color: #fff;
-            position: absolute;
-        }
-    }*/ }
+    cursor: pointer; }
     header .menu__btn .menu__btn__bar {
       width: 100%;
       height: 5px;
@@ -150,6 +134,7 @@ header {
       header .account a img {
         height: 65px; }
 
+/*----------- modules -----------   FOOTER   ---------------------------------*/
 footer {
   text-align: center; }
   footer .footerMenu {
@@ -176,6 +161,8 @@ footer {
     color: #fff;
     text-decoration: none; }
 
+/*#####################----------   LAYOUTS   ---------#######################*/
+/*----------- layouts ------------   HOME   ----------------------------------*/
 body {
   background-color: #222; }
 
@@ -280,6 +267,7 @@ body {
         height: 400px;
         color: red; }
 
+/*----------- layouts -------   AUTHENTICATION   -----------------------------*/
 .authentication {
   display: flex;
   flex-flow: column nowrap;
@@ -323,6 +311,8 @@ body {
       max-height: 0px;
       overflow: hidden;
       border: none; }
+    .authentication .signInFormCard .red, .authentication .signUpFormCard .red {
+      border: 4px solid red; }
   .authentication .signInCurtain {
     transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
     max-height: 500px;
@@ -331,5 +321,115 @@ body {
     transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
     max-height: 700px;
     overflow: auto; }
+
+/*----------- layouts -----------   ABOUT   ----------------------------------*/
+.about {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px 50px; }
+  .about article {
+    margin: 50px 0; }
+    .about article p {
+      font-size: .85rem;
+      margin-bottom: 30px; }
+  .about h1 {
+    font-size: 10rem;
+    margin-bottom: 50px; }
+
+/*----------- layouts -----------   CODEX   ----------------------------------*/
+.codex {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px 50px; }
+  .codex h1 {
+    font-size: 10rem;
+    margin-bottom: 100px; }
+  .codex .weaponsList, .codex .itemsList {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-bottom: 6rem; }
+    .codex .weaponsList h2, .codex .itemsList h2 {
+      font-size: 3.5rem;
+      margin-bottom: 3rem; }
+    .codex .weaponsList__item__1, .codex .itemsList__item__1 {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      height: 332px;
+      margin: 1rem 0;
+      border: 2px solid white;
+      padding: 1rem; }
+      .codex .weaponsList__item__1__img img, .codex .itemsList__item__1__img img {
+        width: 300px;
+        height: 300px; }
+      .codex .weaponsList__item__1__text, .codex .itemsList__item__1__text {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 100%;
+        margin-left: 2rem; }
+        .codex .weaponsList__item__1__text h3, .codex .itemsList__item__1__text h3 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem; }
+        .codex .weaponsList__item__1__text p, .codex .itemsList__item__1__text p {
+          font-size: 1.5rem;
+          overflow: auto; }
+
+/*----------- layouts ----------   CONTACT   ---------------------------------*/
+.contact {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 2rem 1rem; }
+  .contact h1 {
+    font-size: 6rem; }
+  .contact .contactForm {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 90%; }
+    .contact .contactForm label {
+      margin: 1rem 0;
+      font-size: 1.5rem; }
+    .contact .contactForm input, .contact .contactForm textarea {
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 100px;
+      font-size: 2rem; }
+    .contact .contactForm textarea {
+      height: 300px; }
+    .contact .contactForm .signInButton, .contact .contactForm .signUpButton {
+      background-color: #333;
+      margin: 1.5rem 0; }
+
+/*----------- layouts ----------   ACCOUNT   ---------------------------------*/
+.account {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 2rem 1rem; }
+  .account h1 {
+    font-size: 6rem; }
+  .account form {
+    display: flex;
+    flex-flow: column nowrap; }
+    .account form label {
+      margin: 1rem 0;
+      font-size: 1.5rem; }
+    .account form input {
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 100px;
+      font-size: 3rem; }
+    .account form .signInButton, .account form .signUpButton {
+      background-color: #333;
+      margin: 1.5rem 0; }
+  .account button {
+    height: 100px;
+    width: 200px;
+    font-size: 2rem; }
+  .account a {
+    margin: 3rem; }
 
 /*# sourceMappingURL=style.css.map */

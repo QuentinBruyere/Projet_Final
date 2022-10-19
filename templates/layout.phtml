@@ -1,3 +1,10 @@
+<?php
+
+if(!isset($_SESSION)){
+    session_start();
+}
+
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,11 +17,7 @@
 <body>
     <header>
         <div class="menu__btn">
-            <!--<a class="menu__btn" title="menu" href="#">
-                <img src="./assets/medias/icons/menu-50.png">
-            </a>-->
             <div class="menu__btn__bar"></div>
-            <!--<div class="menu__btn--animate"></div>-->
         </div>
         <div class="menu__sideModal">
             <nav>
@@ -24,12 +27,32 @@
                     <li class="menu__sideModal__codex"><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/codex">Codex</a></li>
                 </ul>
             </nav>
-            <a class="menu__sideModal__account" href="#">Account</a>
-            <a class="menu__sideModal__aboutUs" href="#">About Us</a>
+            <a class="menu__sideModal__account" 
+            <?php
+            
+            if(isset($_SESSION["connected"]) && $_SESSION["connected"]){
+                echo 'href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/account"';
+            }else{
+                echo 'href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate"';
+            }
+            
+            ?>
+            >Account</a>
+            <a class="menu__sideModal__aboutUs" href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/about">About</a>
         </div>
         <a class="menu__homeBtn" href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/"><img src="./assets/medias/imgs/Logo-WWW-Mae.png"></a>
         <div class="account">
-            <a title="Account" href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate">
+            <a title="Account" 
+            <?php
+            
+            if(isset($_SESSION["connected"]) && $_SESSION["connected"]){
+                echo 'href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/account"';
+            }else{
+                echo 'href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate"';
+            }
+            
+            ?>
+            >
                 <img src="./assets/medias/icons/account-48.png">
             </a>
         </div>
@@ -46,9 +69,8 @@
         <div class="footerMenu">
             <nav>
                 <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="#">Data preferences</a></li>
+                    <li><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/about">About</a></li>
+                    <li><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/contact">Contact</a></li>
                 </ul>
             </nav>
         </div>

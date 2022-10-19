@@ -1,14 +1,12 @@
 <?php
 
-//pb d'abstract manager ? 
+require "abstract_manager.php";
 
-//require "abstract_manager.php";
-
-class GameManager extends AbstractManager{
+class GameManager extends AbstractManager {
     
     function updateGame() :string{
     
-        //Getting the "content" datas from the form, and then send it to the DataBase
+        //Getting the datas from the Saveform, and send it to the DB
         $query = $this->db->prepare('INSERT INTO Saves (playerX, playerY) VALUES (:playerX, :playerY)');
         $parameters = [
             'playerX' => $_POST["playerX"],
@@ -22,23 +20,4 @@ class GameManager extends AbstractManager{
     
 }
 
-
-
-/*
-function categoriesList() :array{
-    
-    $db = new PDO(
-    'mysql:host=db.3wa.io;port=3306;dbname=quentinbruyere_distorsion-realProject',
-    'quentinbruyere',
-    'fde1ec0644a19117c0dfa9431a58c26b'
-    );
-    
-    $query = $db->prepare('SELECT id, name FROM categories');
-    $query->execute();
-    $categoriesList = $query->fetchAll(PDO::FETCH_ASSOC);
-    
-    return $categoriesList;
-    
-}
-*/
 ?>
