@@ -6,10 +6,6 @@
             <span>Sign In</span>
         </button>
         <div class="signInCurtain">
-            <?php 
-            /*var_dump($_SESSION);
-            var_dump($_POST);*/
-            ?>
             <form method="POST" class="signInForm" action="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/sign-in">
                 <?php
                 if(isset($_SESSION["username"])){
@@ -40,7 +36,6 @@
                 }
                 
                 ?>/>
-                <?php //var_dump($_SESSION); ?>
                 <label for="password">Password</label>
                 <input type="password" name="password" class="signInPassword <?php
                 

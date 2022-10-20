@@ -37,6 +37,10 @@
         font-size: 2rem;
         height: 60px;
         align-self: start;
+        
+        &:hover {
+            cursor: pointer;
+        }
     }
     
     .disconnect_form{
@@ -48,6 +52,10 @@
             font-size: 3rem;
             background-color: #EFEFEF;
             margin: 6rem 0;
+            
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     
@@ -84,6 +92,10 @@
             background-color: #c24040;
             color: #fff;
             font-size: 2.5rem;
+            
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }

@@ -87,22 +87,6 @@ class UserManager extends AbstractManager {
         return $lastUserId;
         
     }
-    
-    /*
-    function getPlayerById(int $id) :Player
-    {
-        $query = $this->db->prepare('SELECT * FROM players WHERE id = :id');
-        $parameters = [
-            'id' => $id
-        ];
-        $query->execute($parameters);
-        $player_data = $query->fetch();
-        
-        return new Player($player_data["id"], $player_data["username"], $player_data["password"], $player_data["healthpoints"], $player_data["experience"]);
-        
-    }
-    */
-    
 }
 
 ?>

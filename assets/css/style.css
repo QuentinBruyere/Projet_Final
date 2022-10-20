@@ -633,6 +633,8 @@ body {
     font-size: 2rem;
     height: 60px;
     align-self: start; }
+    .account .editButton:hover {
+      cursor: pointer; }
   .account .disconnect_form {
     width: 100%; }
     .account .disconnect_form_submit {
@@ -641,6 +643,8 @@ body {
       font-size: 3rem;
       background-color: #EFEFEF;
       margin: 6rem 0; }
+      .account .disconnect_form_submit:hover {
+        cursor: pointer; }
   .account a {
     margin: 3rem; }
   .account .deleteAccount_form label {
@@ -663,6 +667,8 @@ body {
     background-color: #c24040;
     color: #fff;
     font-size: 2.5rem; }
+    .account .deleteAccount_form .deleteAccount_form_submit:hover {
+      cursor: pointer; }
 
 @media (min-device-width: 700px) {
   .account {
