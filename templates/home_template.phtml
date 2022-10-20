@@ -1,44 +1,33 @@
-<?php 
-    
-    //Bonne place du Controller ??? Pas dans l'index ??
-    
-    //MISE EN COMMENTAIRE LE TEMPS DE L'INTEGRATION
-    
-    /*
-    $signInController = new SignInController();
-    $signInController->checkSignInFields();
-    */
-    
-?>
-
 <card class="welcomeCard">
     <div class="welcomeCard_background"></div>
     <div class="welcomeCard__text">
         <h1>World Waste War</h1>
         <div class="welcomeCard__text__playBtn">
-            <a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate" title="Play for free">PLAY FOR FREE</a>
+            <a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/<?php 
+            if(isset($_SESSION["connected"])){
+                if($_SESSION["connected"]){
+                    echo "the-game";
+                }else{
+                    echo "authenticate";
+                }
+            }else{
+                echo "authenticate";
+            }
+            ?>" title="Play for free">PLAY FOR FREE</a>
         </div>
     </div>
 </card>
 <article class="introduce">
     <card class="introduce__1">
-        <h2>Incarnez le héros de votre village</h2>
+        <h2>Play the Hero of your village</h2>
         <img src="./assets/medias/imgs/hero-pixel.png" alt="Heroe">
     </card>
     <card class="introduce__2">
-        <img src="./assets/medias/imgs/garbage-pixel.jpg" alt="Detoris">
-        <h2>Combattez les Detoris</h2>
+        <img src="./assets/medias/imgs/garbage-pixel.png" alt="Detoris">
+        <h2>Fight the Detoris</h2>
     </card>
     <card class="introduce__3">
-        <div class="introduce__3__img">
-            <img class="introduce__3__img__victoryManSilhouette" src="./assets/medias/imgs/Victory-Man-Silhouette.svg" alt="Victory Man">
-            <!--<img class="introduce__3__img__hill" src="./assets/medias/imgs/hill.svg" alt="hill">-->
-        <svg viewBox="0 0 92.4 22.714">
-          <g transform="matrix(1.25 0 0 -1.25 0 22.714)">
-            <path style="fill:black" d="m65.52 8.3c0.878-0.559 2.187-1.707 3.918-3.441 0.988-0.985 1.722-1.758 2.203-2.321 1.332-1.437 2.093-2.277 2.281-2.519-0.508-0.024-25.149-0.024-73.922 0 0.773 1.414 2.375 2.828 4.801 4.242 2.16 1.305 5.679 3.16 10.558 5.559 5.336 2.64 9.336 4.707 12 6.199 3.786 2.133 7.508 2.679 11.161 1.64 2.691-0.773 6.214-2.8 10.558-6.078 1.574-1.176 2.934-2.054 4.082-2.64 1.867-0.907 3.531-1.254 5-1.039 0.426 0.078 0.945 0.293 1.559 0.636 0.64 0.375 1.133 0.602 1.48 0.68 1.387 0.32 2.828 0.016 4.321-0.918z"/>
-          </g>
-        </svg>
-        </div>
-        <h2>Jusqu'à atteindre leur chef et sauver votre village !</h2>
+        <img src="./assets/medias/imgs/victoryman-pixel.png" alt="Victory Man">
+        <h2>Until you reach their chief and save your village</h2>
     </card>
 </article>

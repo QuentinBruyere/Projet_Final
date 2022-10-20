@@ -1,5 +1,7 @@
 <?php
 
+require "./managers/user_manager.php";
+
 class AuthenticateController {
     
     public function displayAuthenticate(array $post) {
@@ -12,71 +14,132 @@ class AuthenticateController {
     
     public function checkSignUpFields() {
         
+        session_start();
+        
         //Check if fields are empty or wrong. If yes, ask for username and password again
         //Did a self made "required" process
-        if(isset($_POST["username"]) && $_POST["username"] !== ''){
-            if(isset($_POST["password"]) && $_POST["password"] !== ''){
-                if(isset($_POST["email"]) && $_POST["email"] !== ''){
+        if(isset($_POST["signUpUsername"]) && $_POST["signUpUsername"] !== ''){
+            if(isset($_POST["signUpPassword"]) && $_POST["signUpPassword"] !== ''){
+                if(isset($_POST["signUpEmail"]) && $_POST["signUpEmail"] !== ''){
                     
                     $userManager = new UserManager();
                     $dbUser = $userManager->getUserByUsername();
                     
                     if(isset($dbUser["username"])){
-                        if($_POST["username"] === $dbUser["username"]){
-                            echo "ce Username existe déjà";
-                            require "./templates/signupForm_template.phtml";
-                        }
+                        //Username already exist
+                        header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                        exit;
                     }else{
-                        echo "Félicitations, votre compte vient d'être créé ! ";
+                        //User successfully created
                         $userManager->createNewUser();
+                        
+                        header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/');
+                        exit;
                     }
                     
                 }else{
                     //email missing
-                    require "./templates/signupForm_template.phtml";
+                    $_SESSION["signUpUsername"] = true;
+                    $_SESSION["signUpPassword"] = true;
+                    $_SESSION["signUpEmail"] = false;
+                    $_SESSION["signUpFormComplete"] = false;
+                    
+                    header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                    exit;
                 }
             }else{
-                if(isset($_POST["email"]) && $_POST["email"] !== ''){
+                if(isset($_POST["signUpEmail"]) && $_POST["signUpEmail"] !== ''){
                     //password missing
-                    require "./templates/signupForm_template.phtml";
+                    $_SESSION["signUpUsername"] = true;
+                    $_SESSION["signUpPassword"] = false;
+                    $_SESSION["signUpEmail"] = true;
+                    $_SESSION["signUpFormComplete"] = false;
+                    
+                    header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                    exit;
                 }else{
                     //email and password missing
-                    require "./templates/signupForm_template.phtml";
+                    $_SESSION["signUpUsername"] = true;
+                    $_SESSION["signUpPassword"] = false;
+                    $_SESSION["signUpEmail"] = false;
+                    $_SESSION["signUpFormComplete"] = false;
+                    
+                    header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                    exit;
                 }
             }
-        }else if(isset($_POST["password"]) && $_POST["password"] !== ''){
-            if(isset($_POST["email"]) && $_POST["email"] !== ''){
+        }else if(isset($_POST["signUpPassword"]) && $_POST["signUpPassword"] !== ''){
+            if(isset($_POST["signUpEmail"]) && $_POST["signUpEmail"] !== ''){
                 //username missing
-                require "./templates/signupForm_template.phtml";
+                $_SESSION["signUpUsername"] = false;
+                $_SESSION["signUpPassword"] = true;
+                $_SESSION["signUpEmail"] = true;
+                $_SESSION["signUpFormComplete"] = false;
+                
+                header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                exit;
             }else{
                 //username and email missing
-                require "./templates/signupForm_template.phtml";
+                $_SESSION["signUpUsername"] = false;
+                $_SESSION["signUpPassword"] = true;
+                $_SESSION["signUpEmail"] = false;
+                $_SESSION["signUpFormComplete"] = false;
+                
+                header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                exit;
             }
-        }else if(isset($_POST["email"]) && $_POST["email"] !== ''){
-            if(isset($_POST["username"]) && $_POST["username"] !== ''){
+        }else if(isset($_POST["signUpEmail"]) && $_POST["signUpEmail"] !== ''){
+            if(isset($_POST["signUpUsername"]) && $_POST["signUpUsername"] !== ''){
                 //password missing
-                require "./templates/signupForm_template.phtml";
+                $_SESSION["signUpUsername"] = true;
+                $_SESSION["signUpPassword"] = false;
+                $_SESSION["signUpEmail"] = true;
+                $_SESSION["signUpFormComplete"] = false;
+                
+                header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                exit;
             }else{
-                if(isset($_POST["password"]) && $_POST["password"] !== ''){
+                if(isset($_POST["signUpPassword"]) && $_POST["signUpPassword"] !== ''){
                     //username missing
-                    require "./templates/signupForm_template.phtml";
+                    $_SESSION["signUpUsername"] = false;
+                    $_SESSION["signUpPassword"] = true;
+                    $_SESSION["signUpEmail"] = true;
+                    $_SESSION["signUpFormComplete"] = false;
+                    
+                    header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                    exit;
                 }else{
                     //username and password missing
-                    require "./templates/signupForm_template.phtml";
+                    $_SESSION["signUpUsername"] = false;
+                    $_SESSION["signUpPassword"] = false;
+                    $_SESSION["signUpEmail"] = true;
+                    $_SESSION["signUpFormComplete"] = false;
+                    
+                    header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                    exit;
                 }
             }
-        }else if(isset($_POST["username"]) && isset($_POST["password"]) && isset($_POST["email"])){
-            if($_POST["username"] === '' && $_POST["password"] === '' && $_POST["email"] === ''){
+        }else if(isset($_POST["signUpUsername"]) && isset($_POST["signUpPassword"]) && isset($_POST["signUpEmail"])){
+            if($_POST["signUpUsername"] === '' && $_POST["signUpPassword"] === '' && $_POST["signUpEmail"] === ''){
                 //all fields are empty
-                require "./templates/signupForm_template.phtml";
+                $_SESSION["signUpUsername"] = false;
+                $_SESSION["signUpPassword"] = false;
+                $_SESSION["signUpEmail"] = false;
+                $_SESSION["signUpFormComplete"] = false;
+                
+                header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                exit;
             }
         }else{
-            require "./templates/signupForm_template.phtml";
+            header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+            exit;
         }
         
     }
     
     public function checkSignInFields() {
+        
+        session_start();
         
          //Check if fields are empty and if yes, ask for username and password again
         if(isset($_POST["username"]) && $_POST["username"] !== ''){
@@ -88,10 +151,24 @@ class AuthenticateController {
                 
                 //If we get an empty array, the User doesn't exist
                 if(!empty($user)){
-                    if($_POST["password"] === $user["password"]){
-                        //if the user exist and the password is correct, sign in it and redirect at the homepage
+                    if(password_verify($_POST["password"], $user["password"])){
+                        $_SESSION["username"] = $user["username"];
+                        $_SESSION["mail"] = $user["mail"];
+                        $_SESSION["connected"] = true;
                         
-                        session_start();
+                        header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/');
+                        exit;
+                    }else{
+                        //Incorrect password
+                        $_SESSION["username"] = $_POST["username"];
+                        $_SESSION["password"] = $_POST["password"];
+                        $_SESSION["connected"] = false;
+                        
+                        header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
+                        exit;
+                    }
+                    /*if($_POST["password"] === $user["password"]){
+                        //if the user exist and the password is correct, sign in it and redirect at the homepage
                         
                         $_SESSION["username"] = $user["username"];
                         $_SESSION["mail"] = $user["mail"];
@@ -100,25 +177,17 @@ class AuthenticateController {
                         header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/');
                         exit;
                     }else{
-                        
                         //Incorrect password
-                        
-                        session_start();
-                        
                         $_SESSION["username"] = $_POST["username"];
                         $_SESSION["password"] = $_POST["password"];
                         $_SESSION["connected"] = false;
                         
                         header('Location: https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/authenticate');
                         exit;
-                    }
+                    }*/
                 //To increase security, I don't tell the user if the User exist in DB
                 }else{
-                    
                     //Username doesn't exist
-                    
-                    session_start();
-                    
                     $_SESSION["username"] = $_POST["username"];
                     $_SESSION["password"] = $_POST["password"];
                     $_SESSION["connected"] = false;
@@ -128,11 +197,7 @@ class AuthenticateController {
                 }
                 
             }else{
-                
                 //password missing
-                
-                session_start();
-                
                 $_SESSION["username"] = $_POST["username"];
                 $_SESSION["password"] = false;
                 $_SESSION["connected"] = false;
@@ -141,11 +206,7 @@ class AuthenticateController {
                 exit;
             }
         }else if(isset($_POST["password"]) && $_POST["password"] !== ''){
-            
             //username missing
-            
-            session_start();
-            
             $_SESSION["password"] = $_POST["password"];
             $_SESSION["username"] = false;
             $_SESSION["connected"] = false;
@@ -154,11 +215,7 @@ class AuthenticateController {
             exit;
         }else if(isset($_POST["username"]) && isset($_POST["password"])){
             if($_POST["username"] === '' && $_POST["password"] === ''){
-                
                 //username and password missing
-                
-                session_start();
-                
                 $_SESSION["username"] = false;
                 $_SESSION["password"] = false;
                 $_SESSION["connected"] = false;

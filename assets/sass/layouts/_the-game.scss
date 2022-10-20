@@ -1,0 +1,58 @@
+/*----------- layouts ----------   THE-GAME   --------------------------------*/
+
+.game {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 90%;
+    margin: 2rem auto;
+    touch-action: manipulation;
+    user-scalable: no;
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    
+    .stageBackground {
+        width: 100%;
+    }
+    
+    .controls {
+        width: 100%;
+        
+        .pad{
+            width: 500px;
+            height: 500px;
+            border: 2px solid black;
+            position: relative;
+            
+            .arrowUp, .arrowDown{
+                width: 50%;
+                height: 25%;
+                border: 1px solid blue;
+                position: absolute;
+                left: 25%;
+                background-color: #ddd;
+            }
+            
+            .arrowDown{
+                bottom: 0px;
+            }
+            
+            .arrowLeft, .arrowRight{
+                width: 25%;
+                height: 50%;
+                border: 1px solid blue;
+                position: absolute;
+                top: 25%;
+                background-color: #ddd;
+            }
+            
+            .arrowRight{
+                right: 0px;
+            }
+        }
+    }
+}

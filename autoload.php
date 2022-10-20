@@ -3,8 +3,6 @@
 //S/O Mari Doucet, our PHP teacher
 
 require "controllers/home_controller.php";
-require "controllers/signup_controller.php";
-/*require "controllers/signin_controller.php";*/
 require "controllers/authenticate_controller.php";
 require "controllers/account_controller.php";
 require "controllers/about_controller.php";

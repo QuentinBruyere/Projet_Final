@@ -136,20 +136,8 @@ body {
         align-items: center;
         text-align: center;
         
-        &__img {
-            display: flex;
-            flex-flow: column nowrap;
-            
-            &__victoryManSilhouette {
-                width: 400px;
-                height: 400px;
-                color: #000;
-            }
-            &__hill {
-                width: 400px;
-                height: 400px;
-                color: red;
-            }
+        img {
+            width: 350px;
         }
     }
 }

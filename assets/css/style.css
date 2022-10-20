@@ -130,7 +130,7 @@ header {
     display: flex;
     align-items: center; }
     header .account a {
-      margin: 0 32.5px; }
+      margin: 0 20.5px; }
       header .account a img {
         height: 65px; }
 
@@ -255,17 +255,8 @@ body {
     flex-flow: column nowrap;
     align-items: center;
     text-align: center; }
-    .introduce__3__img {
-      display: flex;
-      flex-flow: column nowrap; }
-      .introduce__3__img__victoryManSilhouette {
-        width: 400px;
-        height: 400px;
-        color: #000; }
-      .introduce__3__img__hill {
-        width: 400px;
-        height: 400px;
-        color: red; }
+    .introduce__3 img {
+      width: 350px; }
 
 /*----------- layouts -------   AUTHENTICATION   -----------------------------*/
 .authentication {
@@ -311,8 +302,10 @@ body {
       max-height: 0px;
       overflow: hidden;
       border: none; }
-    .authentication .signInFormCard .red, .authentication .signUpFormCard .red {
+    .authentication .signInFormCard .inputError, .authentication .signUpFormCard .inputError {
       border: 4px solid red; }
+    .authentication .signInFormCard .messageError, .authentication .signUpFormCard .messageError {
+      color: red; }
   .authentication .signInCurtain {
     transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
     max-height: 500px;
@@ -431,5 +424,54 @@ body {
     font-size: 2rem; }
   .account a {
     margin: 3rem; }
+
+/*----------- layouts ----------   THE-GAME   --------------------------------*/
+.game {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 90%;
+  margin: 2rem auto;
+  touch-action: manipulation;
+  user-scalable: no;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */ }
+  .game .stageBackground {
+    width: 100%; }
+  .game .controls {
+    width: 100%; }
+    .game .controls .pad {
+      width: 500px;
+      height: 500px;
+      border: 2px solid black;
+      position: relative; }
+      .game .controls .pad .arrowUp, .game .controls .pad .arrowDown {
+        width: 50%;
+        height: 25%;
+        border: 1px solid blue;
+        position: absolute;
+        left: 25%;
+        background-color: #ddd; }
+      .game .controls .pad .arrowDown {
+        bottom: 0px; }
+      .game .controls .pad .arrowLeft, .game .controls .pad .arrowRight {
+        width: 25%;
+        height: 50%;
+        border: 1px solid blue;
+        position: absolute;
+        top: 25%;
+        background-color: #ddd; }
+      .game .controls .pad .arrowRight {
+        right: 0px; }
 
 /*# sourceMappingURL=style.css.map */
