@@ -37,3 +37,37 @@
         }
     }
 }
+
+@media (min-device-width: 700px) {
+    .contact {
+        margin: 25px 150px;
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 50px;
+        }
+        
+        .contactForm {
+            width: 45%;
+            
+            label{
+                margin: 1rem 0;
+                font-size: .75rem;
+            }
+            
+            input, textarea {
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                height: 50px;
+            }
+            
+            textarea {
+                height: 150px;
+            }
+            
+            .signInButton, .signUpButton{
+                margin: .75rem 0;
+            }
+        }
+    }
+}

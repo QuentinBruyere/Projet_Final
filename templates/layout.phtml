@@ -13,7 +13,6 @@ if(!isset($_SESSION)){
 <head>
     <meta charset="UTF-8">
     <title>World Waste War</title>
-    <!--à quoi ça devait servir ça ? à preload avant la font avant la page ?-->
     <link rel="preload" href="./assets/fonts/UpheavalTT-BRK-.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="icon" href="./assets/medias/icons/www_icon.png" type="image/x-icon"/>
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css" />
@@ -27,7 +26,19 @@ if(!isset($_SESSION)){
             <nav>
                 <ul>
                     <li class="menu__sideModal__home"><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/">Home</a></li>
-                    <li class="menu__sideModal__game"><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/the-game">Game</a></li>
+                    <li class="menu__sideModal__game">
+                        <a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/<?php 
+                            if(isset($_SESSION["connected"])){
+                                if($_SESSION["connected"]){
+                                    echo "the-game";
+                                }else{
+                                    echo "authenticate";
+                                }
+                            }else{
+                                echo "authenticate";
+                            }
+                            ?>" title="Play for free">Game</a>
+                    </li>
                     <li class="menu__sideModal__codex"><a href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/codex">Codex</a></li>
                 </ul>
             </nav>
@@ -45,7 +56,7 @@ if(!isset($_SESSION)){
             <a class="menu__sideModal__aboutUs" href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/about">About</a>
         </div>
         <a class="menu__homeBtn" href="https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/"><img src="./assets/medias/imgs/Logo-WWW-Mae.png"></a>
-        <div class="account">
+        <div class="header__account">
             <a title="Account" 
             <?php
             
@@ -57,7 +68,11 @@ if(!isset($_SESSION)){
             
             ?>
             >
-                <img src="./assets/medias/icons/account-48.png">
+                <img src="./assets/medias/icons/account-48<?php 
+                    if(isset($_SESSION["connected"]) && $_SESSION["connected"]){
+                        echo "-green";
+                    }
+                ?>.png">
             </a>
         </div>
     </header>

@@ -6,14 +6,6 @@
     align-items: center;
     width: 90%;
     margin: 2rem auto;
-    touch-action: manipulation;
-    user-scalable: no;
-    -webkit-touch-callout: none; /* iOS Safari */
-        -webkit-user-select: none; /* Safari */
-        -khtml-user-select: none; /* Konqueror HTML */
-        -moz-user-select: none; /* Old versions of Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-        user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
     
     .stageBackground {
         width: 100%;
@@ -53,6 +45,36 @@
             .arrowRight{
                 right: 0px;
             }
+        }
+    }
+    
+    .saveButton {
+        font-size: 2.5rem;
+        padding: 1rem;
+        margin: 4rem;
+    }
+}
+
+@media (min-device-width: 700px) {
+    .game {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        width: 45%;
+        margin: 1rem auto;
+        
+        .controls {
+            .pad{
+                width: 250px;
+                height: 250px;
+                border: 2px solid black;
+            }
+        }
+        
+        .saveButton {
+            font-size: 1.75rem;
+            padding: .5rem;
+            margin: 2rem;
         }
     }
 }

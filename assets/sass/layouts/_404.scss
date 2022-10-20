@@ -1,0 +1,19 @@
+/*----------- layouts ------------   404   -----------------------------------*/
+
+.error-404 {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 10rem 2rem;
+    
+    h1 {
+        font-size: 5rem;
+    }
+    
+    p {
+        margin: 2rem 0;
+    }
+    
+    .errorMsg {
+        font-size: 1.25rem;
+    }
+}

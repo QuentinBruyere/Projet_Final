@@ -71,7 +71,6 @@ class GameModule {
     
     //Move the Player (red square) when a keyboard's arrow is pressed
     MovePlayer(event) {
-        console.log(event.code);
         switch(event.code){
                 case "ArrowUp":
                     if(player.y - player.height > map.y){
@@ -114,8 +113,6 @@ class GameModule {
                 default :
                     break;
             }
-        console.log("Player X : " + player.x);
-        console.log("Player Y : " + player.y);
         
     }
     
@@ -139,149 +136,3 @@ class GameModule {
 }
 
 export default GameModule;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /*LoadKeyboardListener() {
-        document.addEventListener("keydown", MovePlayer);
-    }*/
-    
-    /*---------   LISTENERS   -----------*/
-    
-    //On écoute les événements du clavier
-    //document.addEventListener("keydown", MovePlayer);
-
-
-    
-/*    
-    let padSettings = {
-        x: 0,
-        y: 0,
-        diameter: "200px",
-        border: "2px solid black",
-        position: "relative",
-        bottom: "10px",
-        left: "10px"
-    
-    ---------   FONCTIONS   -----------
-    
-    arrowLeft.addEventListener("mousedown", e => {
-        arrowLeft.style.backgroundColor = `red`;
-        if(player.x - (player.width/2) > map.x){
-            if(player.x - (player.width/2) - moveSpeed < map.x){
-                player.x = map.x + 1.5*player.width;
-            }
-            player.x-=moveSpeed;
-        }    
-        DisplayGame();
-    });
-    
-    arrowLeft.addEventListener("touchstart", e => {
-        arrowLeft.style.backgroundColor = `red`;
-        arrowLeft.style.backgroundColor = `red`;
-        if(player.x - (player.width/2) > map.x){
-            if(player.x - (player.width/2) - moveSpeed < map.x){
-                player.x = map.x + 1.5*player.width;
-            }
-            player.x-=moveSpeed;
-        }    
-        DisplayGame();
-    });
-    
-    arrowUp.addEventListener("mousedown", e => {
-        arrowUp.style.backgroundColor = `red`;
-        if(player.y - player.height > map.y){
-            if(player.y - player.height - moveSpeed < map.y){
-                player.y = map.y + player.height;
-            }else{
-                player.y-=moveSpeed;    
-            }
-        }
-        DisplayGame();
-    });
-    
-    arrowUp.addEventListener("touchstart", e => {
-        arrowUp.style.backgroundColor = `red`;
-        if(player.y - player.height > map.y){
-            if(player.y - player.height - moveSpeed < map.y){
-                player.y = map.y + player.height;
-            }else{
-                player.y-=moveSpeed;    
-            }
-        }
-        DisplayGame();
-    });
-    
-    arrowRight.addEventListener("mousedown", e => {
-        arrowRight.style.backgroundColor = `red`;
-        if(player.x + (player.width/2) < map.width){
-            if(player.x + (player.width/2) + moveSpeed > map.width){
-                player.x = map.width - 1.5*player.width;
-            }
-            player.x+=moveSpeed;
-        }
-        DisplayGame();
-    });
-    
-    arrowRight.addEventListener("touchstart", e => {
-        arrowRight.style.backgroundColor = `red`;
-        if(player.x + (player.width/2) < map.width){
-            if(player.x + (player.width/2) + moveSpeed > map.width){
-                player.x = map.width - 1.5*player.width;
-            }
-            player.x+=moveSpeed;
-        }
-        DisplayGame();
-    });
-    
-    arrowBottom.addEventListener("mousedown", e => {
-        arrowBottom.style.backgroundColor = `red`;
-        if(player.y < map.height){
-            if(player.y + moveSpeed > map.height){
-                player.y = map.height;
-            }else{
-                player.y+=moveSpeed;
-            }
-        }
-        DisplayGame();
-    });
-    
-    arrowBottom.addEventListener("touchstart", e => {
-        arrowBottom.style.backgroundColor = `red`;
-        if(player.y < map.height){
-            if(player.y + moveSpeed > map.height){
-                player.y = map.height;
-            }else{
-                player.y+=moveSpeed;
-            }
-        }
-        DisplayGame();
-    });
-    
-    });
-    
-
-}
-
-export default ArrowsModule;
-
-*/

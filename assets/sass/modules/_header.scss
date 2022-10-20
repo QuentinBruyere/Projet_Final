@@ -65,12 +65,12 @@ header {
         }
     }
     
-    .account {
+    .header__account {
         display: flex;
         align-items: center;
         
         a {
-            margin: 0 20.5px;
+            margin: 0 32.5px;
             
             img {
                 height: 65px;
@@ -78,5 +78,44 @@ header {
             
         }
         
+    }
+}
+
+@media (min-device-width: 700px) {
+    header {
+        height: 65px;
+        
+        .menu__btn {
+            width: 65px;
+            height: 65px;
+            padding: 15px;
+            
+            .menu__btn__bar {
+                height: 3px;
+                
+                &::before {
+                    height: 3px;
+                    top: 12px;
+                }
+                
+                &::after {
+                    height: 3px;
+                    bottom: 12px;
+                }
+            }
+        }
+        
+        .header__account {
+            display: flex;
+            align-items: center;
+            
+            a {
+                margin: 0 15px;
+                
+                img {
+                    height: 35px;
+                }
+            }
+        }
     }
 }

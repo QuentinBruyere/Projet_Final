@@ -7,11 +7,25 @@ body{
     align-items: center;
     font-size: 2rem;
     
+    touch-action: manipulation;
+    user-scalable: no;
+    -webkit-touch-callout: none; /* iOS Safari */
+        -webkit-user-select: none; /* Safari */
+        -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+        user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+    
+    h1, h2, h3, p, label, a {
+        color: #fff;
+    }
+    
     h1 {
         font-family: Upheaval;
         font-weight:normal;
         font-style:normal;
-        font-size: 5rem;
+        font-size: 4rem;
+        margin-bottom: 50px;
     }
     
     h2 {
@@ -26,5 +40,12 @@ body{
     
     footer {
         margin-bottom: 2rem;
+    }
+}
+
+@media (min-device-width: 700px) {
+    .layout {
+        font-size: 6rem;
+        margin-bottom: 100px;
     }
 }

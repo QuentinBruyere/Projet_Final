@@ -24,12 +24,29 @@ body {
   width: 100vw;
   justify-content: center;
   align-items: center;
-  font-size: 2rem; }
+  font-size: 2rem;
+  touch-action: manipulation;
+  user-scalable: no;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */ }
+  body h1, body h2, body h3, body p, body label, body a {
+    color: #fff; }
   body h1 {
     font-family: Upheaval;
     font-weight: normal;
     font-style: normal;
-    font-size: 5rem; }
+    font-size: 4rem;
+    margin-bottom: 50px; }
   body h2 {
     font-size: 2rem; }
   body p, body a, body h2, body h3, body li, body input, body label, body button {
@@ -39,6 +56,10 @@ body {
   body footer {
     margin-bottom: 2rem; }
 
+@media (min-device-width: 700px) {
+  .layout {
+    font-size: 6rem;
+    margin-bottom: 100px; } }
 /*#####################----------   MODULES   ---------#######################*/
 /*----------- modules ----------   SIDEMENU   --------------------------------*/
 .menu__sideModal {
@@ -80,6 +101,24 @@ body {
   left: 0;
   opacity: 0.95; }
 
+@media (min-device-width: 700px) {
+  .menu__sideModal {
+    justify-content: space-between;
+    left: -350px;
+    width: 350px;
+    padding: 150px 0;
+    padding-bottom: 50px;
+    font-size: 2rem; }
+    .menu__sideModal nav ul li {
+      margin-bottom: 2rem; }
+    .menu__sideModal .menu__sideModal__account {
+      font-size: 1.5rem; }
+    .menu__sideModal .menu__sideModal__aboutUs {
+      font-size: .75rem; }
+
+  .menu__sideModal--visible {
+    left: 0;
+    opacity: 0.95; } }
 /*----------- modules -----------   HEADER   ---------------------------------*/
 header {
   background-color: #555;
@@ -126,14 +165,36 @@ header {
     transform: rotate(-0.5turn); }
   header .menu__homeBtn img {
     height: 100%; }
-  header .account {
+  header .header__account {
     display: flex;
     align-items: center; }
-    header .account a {
-      margin: 0 20.5px; }
-      header .account a img {
+    header .header__account a {
+      margin: 0 32.5px; }
+      header .header__account a img {
         height: 65px; }
 
+@media (min-device-width: 700px) {
+  header {
+    height: 65px; }
+    header .menu__btn {
+      width: 65px;
+      height: 65px;
+      padding: 15px; }
+      header .menu__btn .menu__btn__bar {
+        height: 3px; }
+        header .menu__btn .menu__btn__bar::before {
+          height: 3px;
+          top: 12px; }
+        header .menu__btn .menu__btn__bar::after {
+          height: 3px;
+          bottom: 12px; }
+    header .header__account {
+      display: flex;
+      align-items: center; }
+      header .header__account a {
+        margin: 0 15px; }
+        header .header__account a img {
+          height: 35px; } }
 /*----------- modules -----------   FOOTER   ---------------------------------*/
 footer {
   text-align: center; }
@@ -161,6 +222,15 @@ footer {
     color: #fff;
     text-decoration: none; }
 
+@media (min-device-width: 700px) {
+  footer .footerMenu ul li {
+    font-size: .75rem;
+    list-style: none;
+    padding: 0 .5rem;
+    margin-bottom: 1rem;
+    border-left: 2.5px solid #fff; }
+  footer p {
+    font-size: .5rem; } }
 /*#####################----------   LAYOUTS   ---------#######################*/
 /*----------- layouts ------------   HOME   ----------------------------------*/
 body {
@@ -195,8 +265,8 @@ body {
       font-size: 1.75rem;
       margin-bottom: 20px; }
     .welcomeCard .welcomeCard__text h1 {
-      font-size: 6.25rem;
-      margin-bottom: 80px; }
+      font-size: 12rem;
+      margin-bottom: 200px; }
     .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn {
       display: flex;
       height: auto;
@@ -229,7 +299,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
   margin: 50px 10px; }
-  .introduce h2 {
+  .introduce p {
     font-size: 2.5rem;
     margin: 0 5rem;
     line-height: 3rem;
@@ -257,15 +327,53 @@ body {
     text-align: center; }
     .introduce__3 img {
       width: 350px; }
+    .introduce__3 p {
+      margin-bottom: 5rem; }
 
+@media (min-device-width: 700px) {
+  .welcomeCard {
+    height: 70vh; }
+    .welcomeCard .welcomeCard__text h1 {
+      font-size: 5.5rem;
+      margin-bottom: 100px; }
+    .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a {
+      font-size: 1.25rem;
+      padding: 20px 25px; }
+
+  .introduce {
+    margin: 25px 150px; }
+    .introduce p {
+      font-size: 1.25rem;
+      margin: 0 2rem;
+      line-height: 1.5rem; }
+    .introduce__1 {
+      justify-content: space-around;
+      margin-bottom: 30px; }
+      .introduce__1 img {
+        width: 200px;
+        height: 200px; }
+    .introduce__2 {
+      justify-content: space-around;
+      margin-bottom: 30px; }
+      .introduce__2 img {
+        width: 200px;
+        height: 200px; }
+    .introduce__3 {
+      justify-content: space-around;
+      margin-bottom: 30px; }
+      .introduce__3 img {
+        width: 200px; }
+      .introduce__3 p {
+        margin-bottom: 2.5rem; } }
 /*----------- layouts -------   AUTHENTICATION   -----------------------------*/
 .authentication {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: 2rem 1rem; }
+  margin: 100px auto; }
   .authentication h1 {
-    font-size: 6rem; }
+    font-size: 7rem;
+    margin-bottom: 50px; }
   .authentication h2 {
     font-size: 2.75rem;
     margin: 2rem 0; }
@@ -285,9 +393,13 @@ body {
       height: 100px;
       font-size: 3rem; }
     .authentication form .signInButton, .authentication form .signUpButton {
-      background-color: #333;
-      margin: 1.5rem 0; }
+      background-color: #EFEFEF;
+      color: #000;
+      margin: 1.5rem 0;
+      border-radius: 0px; }
   .authentication .signInForm__displayBtn, .authentication .signUpForm__displayBtn {
+    background-color: #333;
+    color: #ABABAB;
     transition: all .15s linear 0s;
     max-height: 100px;
     overflow: auto; }
@@ -315,6 +427,54 @@ body {
     max-height: 700px;
     overflow: auto; }
 
+@media (min-device-width: 700px) {
+  .authentication {
+    margin: 25px auto;
+    width: 40%; }
+    .authentication h1 {
+      font-size: 4rem;
+      margin-bottom: 25px; }
+    .authentication h2 {
+      font-size: 1.3rem;
+      margin: 1rem 0; }
+    .authentication button {
+      font-size: 1.5rem;
+      height: 50px; }
+    .authentication form label {
+      margin: .5rem 0;
+      font-size: .75rem; }
+    .authentication form input {
+      margin-bottom: .5rem;
+      height: 50px;
+      font-size: 1.5rem; }
+    .authentication form .signInButton, .authentication form .signUpButton {
+      margin: .75rem 0; }
+    .authentication .signInForm__displayBtn, .authentication .signUpForm__displayBtn {
+      transition: all .15s linear 0s;
+      max-height: 50px; }
+    .authentication .signInFormCard, .authentication .signUpFormCard {
+      width: 80%;
+      margin: 25px 0; }
+      .authentication .signInFormCard .authentication__form--hidden, .authentication .signUpFormCard .authentication__form--hidden {
+        max-height: 0px;
+        overflow: hidden; }
+      .authentication .signInFormCard .authentication__form__displayBtn--hidden, .authentication .signUpFormCard .authentication__form__displayBtn--hidden {
+        max-height: 0px;
+        overflow: hidden;
+        border: none; }
+      .authentication .signInFormCard .inputError, .authentication .signUpFormCard .inputError {
+        border: 2px solid red; }
+      .authentication .signInFormCard .messageError, .authentication .signUpFormCard .messageError {
+        color: red;
+        font-size: .5rem; }
+    .authentication .signInCurtain {
+      transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+      max-height: 500px;
+      overflow: auto; }
+    .authentication .signUpCurtain {
+      transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+      max-height: 700px;
+      overflow: auto; } }
 /*----------- layouts -----------   ABOUT   ----------------------------------*/
 .about {
   display: flex;
@@ -330,15 +490,23 @@ body {
     font-size: 10rem;
     margin-bottom: 50px; }
 
+@media (min-device-width: 700px) {
+  .about {
+    margin: 25px 150px; }
+    .about article {
+      margin: 25px 0; }
+      .about article p {
+        font-size: .85rem;
+        margin-bottom: 15px; }
+    .about h1 {
+      font-size: 4rem;
+      margin-bottom: 50px; } }
 /*----------- layouts -----------   CODEX   ----------------------------------*/
 .codex {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   margin: 100px 50px; }
-  .codex h1 {
-    font-size: 10rem;
-    margin-bottom: 100px; }
   .codex .weaponsList, .codex .itemsList {
     display: flex;
     flex-flow: column nowrap;
@@ -370,6 +538,29 @@ body {
           font-size: 1.5rem;
           overflow: auto; }
 
+@media (min-device-width: 700px) {
+  .codex {
+    margin: 25px 150px; }
+    .codex .weaponsList, .codex .itemsList {
+      margin-bottom: 3rem; }
+      .codex .weaponsList h2, .codex .itemsList h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem; }
+      .codex .weaponsList__item__1, .codex .itemsList__item__1 {
+        height: 175px;
+        margin: .5rem 0;
+        border: 2px solid white;
+        padding: .5rem; }
+        .codex .weaponsList__item__1__img img, .codex .itemsList__item__1__img img {
+          width: 150px;
+          height: 150px; }
+        .codex .weaponsList__item__1__text, .codex .itemsList__item__1__text {
+          margin-left: 1rem; }
+          .codex .weaponsList__item__1__text h3, .codex .itemsList__item__1__text h3 {
+            font-size: 1.25rem;
+            margin: 1rem 0; }
+          .codex .weaponsList__item__1__text p, .codex .itemsList__item__1__text p {
+            font-size: .75rem; } }
 /*----------- layouts ----------   CONTACT   ---------------------------------*/
 .contact {
   display: flex;
@@ -396,14 +587,32 @@ body {
       background-color: #333;
       margin: 1.5rem 0; }
 
+@media (min-device-width: 700px) {
+  .contact {
+    margin: 25px 150px; }
+    .contact h1 {
+      font-size: 4rem;
+      margin-bottom: 50px; }
+    .contact .contactForm {
+      width: 45%; }
+      .contact .contactForm label {
+        margin: 1rem 0;
+        font-size: .75rem; }
+      .contact .contactForm input, .contact .contactForm textarea {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        height: 50px; }
+      .contact .contactForm textarea {
+        height: 150px; }
+      .contact .contactForm .signInButton, .contact .contactForm .signUpButton {
+        margin: .75rem 0; } }
 /*----------- layouts ----------   ACCOUNT   ---------------------------------*/
 .account {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: 2rem 1rem; }
-  .account h1 {
-    font-size: 6rem; }
+  margin: 100px auto;
+  width: 80%; }
   .account form {
     display: flex;
     flex-flow: column nowrap; }
@@ -419,33 +628,83 @@ body {
       background-color: #333;
       margin: 1.5rem 0; }
   .account button {
-    height: 100px;
-    width: 200px;
-    font-size: 2rem; }
+    padding: 0 2rem; }
+  .account .editButton {
+    font-size: 2rem;
+    height: 60px;
+    align-self: start; }
+  .account .disconnect_form {
+    width: 100%; }
+    .account .disconnect_form_submit {
+      width: 100%;
+      height: 100px;
+      font-size: 3rem;
+      background-color: #EFEFEF;
+      margin: 6rem 0; }
   .account a {
     margin: 3rem; }
+  .account .deleteAccount_form label {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 5rem; }
+  .account .deleteAccount_form fieldset {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0 auto;
+    border: none; }
+    .account .deleteAccount_form fieldset label {
+      font-size: 1.25rem;
+      margin: 0; }
+    .account .deleteAccount_form fieldset input {
+      width: 35px;
+      margin: 1rem; }
+  .account .deleteAccount_form .deleteAccount_form_submit {
+    background-color: #c24040;
+    color: #fff;
+    font-size: 2.5rem; }
 
+@media (min-device-width: 700px) {
+  .account {
+    margin: 25px auto;
+    width: 40%; }
+    .account form label {
+      margin: .5rem 0;
+      font-size: .75rem; }
+    .account form input {
+      margin-bottom: .5rem;
+      height: 50px;
+      font-size: 1.5rem; }
+    .account form .signInButton, .account form .signUpButton {
+      margin: .75rem 0; }
+    .account button {
+      padding: 0 1rem; }
+    .account .editButton {
+      font-size: 1rem;
+      height: 30px; }
+    .account .disconnect_form_submit {
+      height: 50px;
+      font-size: 1.5rem;
+      margin: 3rem 0; }
+    .account a {
+      margin: 1.5rem; }
+    .account .deleteAccount_form label {
+      font-size: 1rem;
+      margin-top: 2.5rem; }
+    .account .deleteAccount_form fieldset label {
+      font-size: .65rem; }
+    .account .deleteAccount_form fieldset input {
+      width: 17.5px;
+      margin: .5rem; }
+    .account .deleteAccount_form .deleteAccount_form_submit {
+      font-size: 1.25rem; } }
 /*----------- layouts ----------   THE-GAME   --------------------------------*/
 .game {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   width: 90%;
-  margin: 2rem auto;
-  touch-action: manipulation;
-  user-scalable: no;
-  -webkit-touch-callout: none;
-  /* iOS Safari */
-  -webkit-user-select: none;
-  /* Safari */
-  -khtml-user-select: none;
-  /* Konqueror HTML */
-  -moz-user-select: none;
-  /* Old versions of Firefox */
-  -ms-user-select: none;
-  /* Internet Explorer/Edge */
-  user-select: none;
-  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */ }
+  margin: 2rem auto; }
   .game .stageBackground {
     width: 100%; }
   .game .controls {
@@ -473,5 +732,36 @@ body {
         background-color: #ddd; }
       .game .controls .pad .arrowRight {
         right: 0px; }
+  .game .saveButton {
+    font-size: 2.5rem;
+    padding: 1rem;
+    margin: 4rem; }
+
+@media (min-device-width: 700px) {
+  .game {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 45%;
+    margin: 1rem auto; }
+    .game .controls .pad {
+      width: 250px;
+      height: 250px;
+      border: 2px solid black; }
+    .game .saveButton {
+      font-size: 1.75rem;
+      padding: .5rem;
+      margin: 2rem; } }
+/*----------- layouts ------------   404   -----------------------------------*/
+.error-404 {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 10rem 2rem; }
+  .error-404 h1 {
+    font-size: 5rem; }
+  .error-404 p {
+    margin: 2rem 0; }
+  .error-404 .errorMsg {
+    font-size: 1.25rem; }
 
 /*# sourceMappingURL=style.css.map */
