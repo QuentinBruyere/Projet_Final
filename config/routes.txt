@@ -1,2 +1,14 @@
 / HomeController:displayHome
-/register UserController:register
+/authenticate AuthenticateController:displayAuthenticate
+/sign-in AuthenticateController:checkSignInFields
+/sign-up AuthenticateController:checkSignUpFields
+/about AboutController:displayAbout
+/contact ContactController:displayContact
+/send-email ContactController:sendEmail
+/account AccountController:displayAccount
+/account-update AccountController:updateAccount
+/account-delete AccountController:deleteAccount
+/disconnect AccountController:sessionDestroy
+/codex CodexController:displayCodex
+/the-game GameController:displayGame
+/save-game GameController:save

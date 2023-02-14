@@ -4,33 +4,88 @@ require "abstract_manager.php";
 
 class UserManager extends AbstractManager {
     
-    public function getArgonauts() :array{
+    public function getUserByUsername() :array{
         
-        //Récupérer les "name" de l'ensemble de la base de donnée
-        $query = $this->db->prepare('SELECT name FROM users');
-        $query->execute();
+        //Check if the user exist in the DB
+        //Getting the "content" datas from the form, and then send it to the DataBase
+        $query = $this->db->prepare('SELECT * FROM players WHERE players.username = :username');
+        if(isset($_POST["signUpUsername"])){
+            $parameters = [
+                ':username' => $_POST["signUpUsername"]
+            ];
+        }else{
+            $parameters = [
+                ':username' => $_POST["username"]
+            ];
+        }
+        $query->execute($parameters);
         $dbUser = $query->fetchAll(PDO::FETCH_ASSOC);
         
-        if(empty($dbUser)){
-            echo "Aucun Argonaut n'est encore engagé !";
+        if(!empty($dbUser)){
+            $dbUser = $dbUser[0];
         }
         
         return $dbUser;
-
     }
     
-    public function createNewArgonaut(string $name) :string {
+    public function createNewUser() :string {
         
-        // insérer dans la DB la valeur du champ "name" du formulaire
-        $query = $this->db->prepare('INSERT INTO users (name) VALUES (:name)');
+        $query = $this->db->prepare('INSERT INTO players (username, password, mail) VALUES (:username, :password, :email)');
         $parameters = [
-            ':name' => $name
+            ':username' => $_POST["signUpUsername"],
+            ':password' => password_hash($_POST["signUpPassword"], PASSWORD_DEFAULT),
+            ':email' => $_POST["signUpEmail"]
         ];
         $query->execute($parameters);
 
+        // recuperer l' id de celui créé
         $lastUserId = $this->db->lastInsertId();
         
+        //var_dump($lastUserId);
+        
+        // le renvoyer
         return $lastUserId;
+    }
+    
+    public function updateAccount() {
+        
+        $query = $this->db->prepare('
+            UPDATE players
+            SET username = :username, password = :password
+            WHERE mail = :email
+        ');
+        $parameters = [
+            ':username' => $_POST["accountUsername"],
+            ':password' => password_hash($_POST["accountPassword"], PASSWORD_DEFAULT),
+            ':email' => $_SESSION["mail"]
+        ];
+        $query->execute($parameters);
+
+        // recuperer l' id de celui créé
+        $lastUserId = $this->db->lastInsertId();
+        
+        // le renvoyer
+        return $lastUserId;
+        
+    }
+    
+    public function deleteAccount() {
+        
+        $query = $this->db->prepare('
+            DELETE FROM players
+            WHERE mail = :email
+        ');
+        $parameters = [
+            ':email' => $_SESSION["mail"]
+        ];
+        $query->execute($parameters);
+
+        // recuperer l' id de celui créé
+        $lastUserId = $this->db->lastInsertId();
+        
+        // le renvoyer
+        return $lastUserId;
+        
     }
 }
 

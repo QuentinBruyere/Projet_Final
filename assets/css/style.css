@@ -1,62 +1,773 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
-body {
+/*#####################-----------   BASE   -----------#######################*/
+/*----------- base --------------   RESET   ----------------------------------*/
+* {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  min-height: 100vh;
-}
+  padding: 0;
+  box-sizing: border-box; }
 
-main {
-  max-width: 960px;
-  margin: 0 auto;
-}
-
-header {
-  background: #f4f4f4;
-  text-align: center;
-  padding: 2em;
-}
-
-header img {
-  max-width: 96px;
-}
-
-header h1 {
-  font-size: 2.5em;
-}
-
-h1, h2 {
-  text-align: center;
-}
-
-label {
+/*----------- base --------------   FONTS   ----------------------------------*/
+@font-face {
+  font-family: 'Upheaval';
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.eot");
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.eot?#iefix") format("embedded-opentype"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.woff2") format("woff2"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.woff") format("woff"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/Upheaval/UpheavalTT-BRK-.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'PressStart2P';
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.eot");
+  src: url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.eot?#iefix") format("embedded-opentype"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.woff2") format("woff2"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.woff") format("woff"), url("https://quentinbruyere.sites.3wa.io/Soutenance/Projet_Final/assets/fonts/PressStart2P/PressStart2P.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal; }
+/*----------- base --------------   LAYOUT   ---------------------------------*/
+body {
   display: block;
-  margin-bottom: 0.5em;
-}
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  touch-action: manipulation;
+  user-scalable: no;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */ }
+  body h1, body h2, body h3, body p, body label, body a {
+    color: #fff; }
+  body h1 {
+    font-family: Upheaval;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 4rem;
+    margin-bottom: 50px; }
+  body h2 {
+    font-size: 2rem; }
+  body p, body a, body h2, body h3, body li, body input, body label, body button {
+    font-family: PressStart2P;
+    font-weight: normal;
+    font-style: normal; }
+  body footer {
+    margin-bottom: 2rem; }
 
-.new-member-form {
-  margin: 2em 0 4em 0;
-  text-align: center;
-}
-
-.member-list {
+@media (min-device-width: 700px) {
+  .layout {
+    font-size: 6rem;
+    margin-bottom: 100px; } }
+/*#####################----------   MODULES   ---------#######################*/
+/*----------- modules ----------   SIDEMENU   --------------------------------*/
+.menu__sideModal {
+  background-color: #333;
   display: flex;
-  flex-flow: row wrap;
-  justify-content: start;
-  width: 100%;
-}
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  left: -750px;
+  top: 0;
+  width: 750px;
+  height: 100vh;
+  padding: 300px 0;
+  padding-bottom: 100px;
+  font-size: 4rem;
+  opacity: 0.5;
+  z-index: 998;
+  transition: all .75s ease-out 0s; }
+  .menu__sideModal nav {
+    text-align: center;
+    position: relative; }
+    .menu__sideModal nav ul li {
+      list-style: none;
+      margin-bottom: 2rem; }
+      .menu__sideModal nav ul li:last-of-type {
+        margin-bottom: 0; }
+  .menu__sideModal a {
+    text-decoration: none;
+    color: white; }
+    .menu__sideModal a:hover {
+      color: red; }
+  .menu__sideModal .menu__sideModal__account {
+    font-size: 3rem; }
+  .menu__sideModal .menu__sideModal__aboutUs {
+    font-size: 1.5rem; }
 
-.member-item {
-  padding: 0.25em 0;
-  min-width: calc(100%/3);
-  text-align: center;
-}
+.menu__sideModal--visible {
+  left: 0;
+  opacity: 0.95; }
 
+@media (min-device-width: 700px) {
+  .menu__sideModal {
+    justify-content: space-between;
+    left: -350px;
+    width: 350px;
+    padding: 150px 0;
+    padding-bottom: 50px;
+    font-size: 2rem; }
+    .menu__sideModal nav ul li {
+      margin-bottom: 2rem; }
+    .menu__sideModal .menu__sideModal__account {
+      font-size: 1.5rem; }
+    .menu__sideModal .menu__sideModal__aboutUs {
+      font-size: .75rem; }
+
+  .menu__sideModal--visible {
+    left: 0;
+    opacity: 0.95; } }
+/*----------- modules -----------   HEADER   ---------------------------------*/
+header {
+  background-color: #555;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  height: 130px;
+  position: sticky;
+  top: 0px;
+  z-index: 997; }
+  header .menu__btn {
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    width: 130px;
+    height: 130px;
+    padding: 35px;
+    cursor: pointer; }
+    header .menu__btn .menu__btn__bar {
+      width: 100%;
+      height: 5px;
+      background-color: #fff;
+      position: relative;
+      transition: all .75s ease-out 0s; }
+      header .menu__btn .menu__btn__bar::before {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: absolute;
+        top: 20px; }
+      header .menu__btn .menu__btn__bar::after {
+        content: "";
+        width: 100%;
+        height: 5px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 20px; }
+    header .menu__btn a {
+      margin: 0 40px; }
+      header .menu__btn a img {
+        height: 50px; }
+  header .menu__btn--animate {
+    transform: rotate(-0.5turn); }
+  header .menu__homeBtn img {
+    height: 100%; }
+  header .header__account {
+    display: flex;
+    align-items: center; }
+    header .header__account a {
+      margin: 0 32.5px; }
+      header .header__account a img {
+        height: 65px; }
+
+@media (min-device-width: 700px) {
+  header {
+    height: 65px; }
+    header .menu__btn {
+      width: 65px;
+      height: 65px;
+      padding: 15px; }
+      header .menu__btn .menu__btn__bar {
+        height: 3px; }
+        header .menu__btn .menu__btn__bar::before {
+          height: 3px;
+          top: 12px; }
+        header .menu__btn .menu__btn__bar::after {
+          height: 3px;
+          bottom: 12px; }
+    header .header__account {
+      display: flex;
+      align-items: center; }
+      header .header__account a {
+        margin: 0 15px; }
+        header .header__account a img {
+          height: 35px; } }
+/*----------- modules -----------   FOOTER   ---------------------------------*/
 footer {
-  margin-top: 2em;
-  text-align: center;
-  color: #fff;
-  background: #f76c6c;
-  padding: 0.25em 0;
-  width: 100%;
-}
+  text-align: center; }
+  footer .footerMenu {
+    display: flex;
+    justify-content: center; }
+    footer .footerMenu ul {
+      display: flex;
+      flex-flow: row wrap; }
+      footer .footerMenu ul li:first-of-type {
+        border-left: none; }
+      footer .footerMenu ul li {
+        font-size: 1.5rem;
+        list-style: none;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        border-left: 5px solid #fff;
+        text-align: left; }
+        footer .footerMenu ul li a:hover {
+          color: #999; }
+  footer p {
+    font-size: 1rem;
+    color: #888; }
+  footer a {
+    color: #fff;
+    text-decoration: none; }
+
+@media (min-device-width: 700px) {
+  footer .footerMenu ul li {
+    font-size: .75rem;
+    list-style: none;
+    padding: 0 .5rem;
+    margin-bottom: 1rem;
+    border-left: 2.5px solid #fff; }
+  footer p {
+    font-size: .5rem; } }
+/*#####################----------   LAYOUTS   ---------#######################*/
+/*----------- layouts ------------   HOME   ----------------------------------*/
+body {
+  background-color: #222; }
+
+.welcomeCard {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 90vh;
+  position: relative; }
+  .welcomeCard .welcomeCard_background {
+    width: 100%;
+    height: 100%;
+    background-image: url("../medias/imgs/homeScreenShot.png");
+    background-position: center;
+    background-size: cover;
+    opacity: .3; }
+  .welcomeCard .welcomeCard__text {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    text-align: center; }
+    .welcomeCard .welcomeCard__text p {
+      font-size: 1.75rem;
+      margin-bottom: 20px; }
+    .welcomeCard .welcomeCard__text h1 {
+      font-size: 12rem;
+      margin-bottom: 200px; }
+    .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn {
+      display: flex;
+      height: auto;
+      margin: 0 auto;
+      position: relative;
+      cursor: pointer;
+      text-transform: uppercase;
+      border-style: solid;
+      border-width: 20px;
+      border-image: url(https://i.imgur.com/sREM8Yn.png) 20 stretch; }
+      .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn:active {
+        top: 2px; }
+      .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a {
+        color: #fff;
+        font-size: 3rem;
+        text-decoration: none;
+        position: relative;
+        margin: -20px -20px;
+        padding: 40px 50px;
+        background: linear-gradient(135deg, transparent 10px, #000000 0) top left, linear-gradient(225deg, transparent 10px, #000000 0) top right, linear-gradient(315deg, transparent 10px, #000000 0) bottom right, linear-gradient(45deg, transparent 10px, #000000 0) bottom left;
+        background-size: 50% 50%;
+        background-repeat: no-repeat;
+        background-image: radial-gradient(circle at 0 0, rgba(204, 0, 0, 0) 14px, #000000 15px), radial-gradient(circle at 100% 0, rgba(204, 0, 0, 0) 14px, #000000 15px), radial-gradient(circle at 100% 100%, rgba(204, 0, 0, 0) 14px, #000000 15px), radial-gradient(circle at 0 100%, rgba(204, 0, 0, 0) 14px, #000000 15px); }
+        .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a:hover {
+          color: #999; }
+        .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a:active {
+          color: #555; }
+
+.introduce {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 50px 10px; }
+  .introduce p {
+    font-size: 2.5rem;
+    margin: 0 5rem;
+    line-height: 3rem;
+    text-align: center; }
+  .introduce__1 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 75px; }
+    .introduce__1 img {
+      width: 400px;
+      height: 400px; }
+  .introduce__2 {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 75px; }
+    .introduce__2 img {
+      width: 400px;
+      height: 400px; }
+  .introduce__3 {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center; }
+    .introduce__3 img {
+      width: 350px; }
+    .introduce__3 p {
+      margin-bottom: 5rem; }
+
+@media (min-device-width: 700px) {
+  .welcomeCard {
+    height: 70vh; }
+    .welcomeCard .welcomeCard__text h1 {
+      font-size: 5.5rem;
+      margin-bottom: 100px; }
+    .welcomeCard .welcomeCard__text .welcomeCard__text__playBtn a {
+      font-size: 1.25rem;
+      padding: 20px 25px; }
+
+  .introduce {
+    margin: 25px 150px; }
+    .introduce p {
+      font-size: 1.25rem;
+      margin: 0 2rem;
+      line-height: 1.5rem; }
+    .introduce__1 {
+      justify-content: space-around;
+      margin-bottom: 30px; }
+      .introduce__1 img {
+        width: 200px;
+        height: 200px; }
+    .introduce__2 {
+      justify-content: space-around;
+      margin-bottom: 30px; }
+      .introduce__2 img {
+        width: 200px;
+        height: 200px; }
+    .introduce__3 {
+      justify-content: space-around;
+      margin-bottom: 30px; }
+      .introduce__3 img {
+        width: 200px; }
+      .introduce__3 p {
+        margin-bottom: 2.5rem; } }
+/*----------- layouts -------   AUTHENTICATION   -----------------------------*/
+.authentication {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px auto; }
+  .authentication h1 {
+    font-size: 7rem;
+    margin-bottom: 50px; }
+  .authentication h2 {
+    font-size: 2.75rem;
+    margin: 2rem 0; }
+  .authentication button {
+    font-size: 3rem;
+    width: 100%;
+    height: 100px; }
+  .authentication form {
+    display: flex;
+    flex-flow: column nowrap; }
+    .authentication form label {
+      margin: 1rem 0;
+      font-size: 1.5rem; }
+    .authentication form input {
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 100px;
+      font-size: 3rem; }
+    .authentication form .signInButton, .authentication form .signUpButton {
+      background-color: #EFEFEF;
+      color: #000;
+      margin: 1.5rem 0;
+      border-radius: 0px; }
+  .authentication .signInForm__displayBtn, .authentication .signUpForm__displayBtn {
+    background-color: #333;
+    color: #ABABAB;
+    transition: all .15s linear 0s;
+    max-height: 100px;
+    overflow: auto; }
+  .authentication .signInFormCard, .authentication .signUpFormCard {
+    width: 80%;
+    text-align: left;
+    margin: 50px 0; }
+    .authentication .signInFormCard .authentication__form--hidden, .authentication .signUpFormCard .authentication__form--hidden {
+      max-height: 0px;
+      overflow: hidden; }
+    .authentication .signInFormCard .authentication__form__displayBtn--hidden, .authentication .signUpFormCard .authentication__form__displayBtn--hidden {
+      max-height: 0px;
+      overflow: hidden;
+      border: none; }
+    .authentication .signInFormCard .inputError, .authentication .signUpFormCard .inputError {
+      border: 4px solid red; }
+    .authentication .signInFormCard .messageError, .authentication .signUpFormCard .messageError {
+      color: red; }
+  .authentication .signInCurtain {
+    transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+    max-height: 500px;
+    overflow: auto; }
+  .authentication .signUpCurtain {
+    transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+    max-height: 700px;
+    overflow: auto; }
+
+@media (min-device-width: 700px) {
+  .authentication {
+    margin: 25px auto;
+    width: 40%; }
+    .authentication h1 {
+      font-size: 4rem;
+      margin-bottom: 25px; }
+    .authentication h2 {
+      font-size: 1.3rem;
+      margin: 1rem 0; }
+    .authentication button {
+      font-size: 1.5rem;
+      height: 50px; }
+    .authentication form label {
+      margin: .5rem 0;
+      font-size: .75rem; }
+    .authentication form input {
+      margin-bottom: .5rem;
+      height: 50px;
+      font-size: 1.5rem; }
+    .authentication form .signInButton, .authentication form .signUpButton {
+      margin: .75rem 0; }
+    .authentication .signInForm__displayBtn, .authentication .signUpForm__displayBtn {
+      transition: all .15s linear 0s;
+      max-height: 50px; }
+    .authentication .signInFormCard, .authentication .signUpFormCard {
+      width: 80%;
+      margin: 25px 0; }
+      .authentication .signInFormCard .authentication__form--hidden, .authentication .signUpFormCard .authentication__form--hidden {
+        max-height: 0px;
+        overflow: hidden; }
+      .authentication .signInFormCard .authentication__form__displayBtn--hidden, .authentication .signUpFormCard .authentication__form__displayBtn--hidden {
+        max-height: 0px;
+        overflow: hidden;
+        border: none; }
+      .authentication .signInFormCard .inputError, .authentication .signUpFormCard .inputError {
+        border: 2px solid red; }
+      .authentication .signInFormCard .messageError, .authentication .signUpFormCard .messageError {
+        color: red;
+        font-size: .5rem; }
+    .authentication .signInCurtain {
+      transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+      max-height: 500px;
+      overflow: auto; }
+    .authentication .signUpCurtain {
+      transition: all 0.9s cubic-bezier(0.6, 1.5, 0, 0.8) 0s;
+      max-height: 700px;
+      overflow: auto; } }
+/*----------- layouts -----------   ABOUT   ----------------------------------*/
+.about {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px 50px; }
+  .about article {
+    margin: 50px 0; }
+    .about article p {
+      font-size: .85rem;
+      margin-bottom: 30px; }
+  .about h1 {
+    font-size: 10rem;
+    margin-bottom: 50px; }
+
+@media (min-device-width: 700px) {
+  .about {
+    margin: 25px 150px; }
+    .about article {
+      margin: 25px 0; }
+      .about article p {
+        font-size: .85rem;
+        margin-bottom: 15px; }
+    .about h1 {
+      font-size: 4rem;
+      margin-bottom: 50px; } }
+/*----------- layouts -----------   CODEX   ----------------------------------*/
+.codex {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px 50px; }
+  .codex .weaponsList, .codex .itemsList {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    margin-bottom: 6rem; }
+    .codex .weaponsList h2, .codex .itemsList h2 {
+      font-size: 3.5rem;
+      margin-bottom: 3rem; }
+    .codex .weaponsList__item__1, .codex .itemsList__item__1 {
+      display: flex;
+      flex-flow: row nowrap;
+      width: 100%;
+      height: 332px;
+      margin: 1rem 0;
+      border: 2px solid white;
+      padding: 1rem; }
+      .codex .weaponsList__item__1__img img, .codex .itemsList__item__1__img img {
+        width: 300px;
+        height: 300px; }
+      .codex .weaponsList__item__1__text, .codex .itemsList__item__1__text {
+        display: flex;
+        flex-flow: column nowrap;
+        width: 100%;
+        margin-left: 2rem; }
+        .codex .weaponsList__item__1__text h3, .codex .itemsList__item__1__text h3 {
+          font-size: 2.5rem;
+          margin-bottom: 1rem; }
+        .codex .weaponsList__item__1__text p, .codex .itemsList__item__1__text p {
+          font-size: 1.5rem;
+          overflow: auto; }
+
+@media (min-device-width: 700px) {
+  .codex {
+    margin: 25px 150px; }
+    .codex .weaponsList, .codex .itemsList {
+      margin-bottom: 3rem; }
+      .codex .weaponsList h2, .codex .itemsList h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem; }
+      .codex .weaponsList__item__1, .codex .itemsList__item__1 {
+        height: 175px;
+        margin: .5rem 0;
+        border: 2px solid white;
+        padding: .5rem; }
+        .codex .weaponsList__item__1__img img, .codex .itemsList__item__1__img img {
+          width: 150px;
+          height: 150px; }
+        .codex .weaponsList__item__1__text, .codex .itemsList__item__1__text {
+          margin-left: 1rem; }
+          .codex .weaponsList__item__1__text h3, .codex .itemsList__item__1__text h3 {
+            font-size: 1.25rem;
+            margin: 1rem 0; }
+          .codex .weaponsList__item__1__text p, .codex .itemsList__item__1__text p {
+            font-size: .75rem; } }
+/*----------- layouts ----------   CONTACT   ---------------------------------*/
+.contact {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 2rem 1rem; }
+  .contact h1 {
+    font-size: 6rem; }
+  .contact .contactForm {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 90%; }
+    .contact .contactForm label {
+      margin: 1rem 0;
+      font-size: 1.5rem; }
+    .contact .contactForm input, .contact .contactForm textarea {
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 100px;
+      font-size: 2rem; }
+    .contact .contactForm textarea {
+      height: 300px; }
+    .contact .contactForm .signInButton, .contact .contactForm .signUpButton {
+      background-color: #333;
+      margin: 1.5rem 0; }
+
+@media (min-device-width: 700px) {
+  .contact {
+    margin: 25px 150px; }
+    .contact h1 {
+      font-size: 4rem;
+      margin-bottom: 50px; }
+    .contact .contactForm {
+      width: 45%; }
+      .contact .contactForm label {
+        margin: 1rem 0;
+        font-size: .75rem; }
+      .contact .contactForm input, .contact .contactForm textarea {
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        height: 50px; }
+      .contact .contactForm textarea {
+        height: 150px; }
+      .contact .contactForm .signInButton, .contact .contactForm .signUpButton {
+        margin: .75rem 0; } }
+/*----------- layouts ----------   ACCOUNT   ---------------------------------*/
+.account {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  margin: 100px auto;
+  width: 80%; }
+  .account form {
+    display: flex;
+    flex-flow: column nowrap; }
+    .account form label {
+      margin: 1rem 0;
+      font-size: 1.5rem; }
+    .account form input {
+      margin-bottom: 1rem;
+      width: 100%;
+      height: 100px;
+      font-size: 3rem; }
+    .account form .signInButton, .account form .signUpButton {
+      background-color: #333;
+      margin: 1.5rem 0; }
+  .account button {
+    padding: 0 2rem; }
+  .account .editButton {
+    font-size: 2rem;
+    height: 60px;
+    align-self: start; }
+    .account .editButton:hover {
+      cursor: pointer; }
+  .account .disconnect_form {
+    width: 100%; }
+    .account .disconnect_form_submit {
+      width: 100%;
+      height: 100px;
+      font-size: 3rem;
+      background-color: #EFEFEF;
+      margin: 6rem 0; }
+      .account .disconnect_form_submit:hover {
+        cursor: pointer; }
+  .account a {
+    margin: 3rem; }
+  .account .deleteAccount_form label {
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 5rem; }
+  .account .deleteAccount_form fieldset {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin: 0 auto;
+    border: none; }
+    .account .deleteAccount_form fieldset label {
+      font-size: 1.25rem;
+      margin: 0; }
+    .account .deleteAccount_form fieldset input {
+      width: 35px;
+      margin: 1rem; }
+  .account .deleteAccount_form .deleteAccount_form_submit {
+    background-color: #c24040;
+    color: #fff;
+    font-size: 2.5rem; }
+    .account .deleteAccount_form .deleteAccount_form_submit:hover {
+      cursor: pointer; }
+
+@media (min-device-width: 700px) {
+  .account {
+    margin: 25px auto;
+    width: 40%; }
+    .account form label {
+      margin: .5rem 0;
+      font-size: .75rem; }
+    .account form input {
+      margin-bottom: .5rem;
+      height: 50px;
+      font-size: 1.5rem; }
+    .account form .signInButton, .account form .signUpButton {
+      margin: .75rem 0; }
+    .account button {
+      padding: 0 1rem; }
+    .account .editButton {
+      font-size: 1rem;
+      height: 30px; }
+    .account .disconnect_form_submit {
+      height: 50px;
+      font-size: 1.5rem;
+      margin: 3rem 0; }
+    .account a {
+      margin: 1.5rem; }
+    .account .deleteAccount_form label {
+      font-size: 1rem;
+      margin-top: 2.5rem; }
+    .account .deleteAccount_form fieldset label {
+      font-size: .65rem; }
+    .account .deleteAccount_form fieldset input {
+      width: 17.5px;
+      margin: .5rem; }
+    .account .deleteAccount_form .deleteAccount_form_submit {
+      font-size: 1.25rem; } }
+/*----------- layouts ----------   THE-GAME   --------------------------------*/
+.game {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  width: 90%;
+  margin: 2rem auto; }
+  .game .stageBackground {
+    width: 100%; }
+  .game .controls {
+    width: 100%; }
+    .game .controls .pad {
+      width: 500px;
+      height: 500px;
+      border: 2px solid black;
+      position: relative; }
+      .game .controls .pad .arrowUp, .game .controls .pad .arrowDown {
+        width: 50%;
+        height: 25%;
+        border: 1px solid blue;
+        position: absolute;
+        left: 25%;
+        background-color: #ddd; }
+      .game .controls .pad .arrowDown {
+        bottom: 0px; }
+      .game .controls .pad .arrowLeft, .game .controls .pad .arrowRight {
+        width: 25%;
+        height: 50%;
+        border: 1px solid blue;
+        position: absolute;
+        top: 25%;
+        background-color: #ddd; }
+      .game .controls .pad .arrowRight {
+        right: 0px; }
+  .game .saveButton {
+    font-size: 2.5rem;
+    padding: 1rem;
+    margin: 4rem; }
+
+@media (min-device-width: 700px) {
+  .game {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    width: 45%;
+    margin: 1rem auto; }
+    .game .controls .pad {
+      width: 250px;
+      height: 250px;
+      border: 2px solid black; }
+    .game .saveButton {
+      font-size: 1.75rem;
+      padding: .5rem;
+      margin: 2rem; } }
+/*----------- layouts ------------   404   -----------------------------------*/
+.error-404 {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 10rem 2rem; }
+  .error-404 h1 {
+    font-size: 5rem; }
+  .error-404 p {
+    margin: 2rem 0; }
+  .error-404 .errorMsg {
+    font-size: 1.25rem; }
+
+/*# sourceMappingURL=style.css.map */

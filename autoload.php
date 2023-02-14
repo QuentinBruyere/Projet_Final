@@ -3,7 +3,12 @@
 //S/O Mari Doucet, our PHP teacher
 
 require "controllers/home_controller.php";
-require "controllers/user_controller.php";
+require "controllers/authenticate_controller.php";
+require "controllers/account_controller.php";
+require "controllers/about_controller.php";
+require "controllers/contact_controller.php";
+require "controllers/codex_controller.php";
+require "controllers/game_controller.php";
 require "services/router.php";
 
 $routes = [];

@@ -1,0 +1,174 @@
+/*----------- layouts -------   AUTHENTICATION   -----------------------------*/
+
+.authentication {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 100px auto;
+    
+    h1 {
+        font-size: 7rem;
+        margin-bottom: 50px;
+    }
+    
+    h2 {
+        font-size: 2.75rem;
+        margin: 2rem 0;
+    }
+    
+    button {
+        font-size: 3rem;
+        width: 100%;
+        height: 100px;
+    }
+    
+    form {
+        display: flex;
+        flex-flow: column nowrap;
+        
+        label{
+            margin: 1rem 0;
+            font-size: 1.5rem;
+        }
+        
+        input {
+            margin-bottom: 1rem;
+            width: 100%;
+            height: 100px;
+            font-size: 3rem;
+        }
+        
+        .signInButton, .signUpButton{
+            background-color: #EFEFEF;
+            color: #000;
+            margin: 1.5rem 0;
+            border-radius: 0px;
+        }
+    }
+    
+    .signInForm__displayBtn, .signUpForm__displayBtn {
+        background-color: #333;
+        color: #ABABAB;
+        transition: all .15s linear 0s;
+        max-height: 100px;
+        overflow: auto;
+    }
+    
+    .signInFormCard, .signUpFormCard {
+        width: 80%;
+        text-align: left;
+        margin: 50px 0;
+        
+        .authentication__form--hidden {
+            max-height: 0px;
+            overflow: hidden;
+        }
+        
+        .authentication__form__displayBtn--hidden {
+            max-height: 0px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .inputError {
+            border: 4px solid red;
+        }
+        
+        .messageError {
+            color: red;
+        }
+    }
+    
+    .signInCurtain {
+        transition: all .9s cubic-bezier(.6, 1.5, 0, .8) 0s;
+        max-height: 500px;
+        overflow: auto;
+    }
+    
+    .signUpCurtain {
+        transition: all .9s cubic-bezier(.6, 1.5, 0, .8) 0s;
+        max-height: 700px;
+        overflow: auto;
+    }
+}
+
+@media (min-device-width: 700px) {
+    .authentication {
+        margin: 25px auto;
+        width: 40%;
+        
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+        }
+        
+        h2 {
+            font-size: 1.3rem;
+            margin: 1rem 0;
+        }
+        
+        button {
+            font-size: 1.5rem;
+            height: 50px;
+        }
+        
+        form {
+            label{
+                margin: .5rem 0;
+                font-size: .75rem;
+            }
+            
+            input {
+                margin-bottom: .5rem;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+            
+            .signInButton, .signUpButton{
+                margin: .75rem 0;
+            }
+        }
+        
+        .signInForm__displayBtn, .signUpForm__displayBtn {
+            transition: all .15s linear 0s;
+            max-height: 50px;
+        }
+        
+        .signInFormCard, .signUpFormCard {
+            width: 80%;
+            margin: 25px 0;
+            
+            .authentication__form--hidden {
+                max-height: 0px;
+                overflow: hidden;
+            }
+            
+            .authentication__form__displayBtn--hidden {
+                max-height: 0px;
+                overflow: hidden;
+                border: none;
+            }
+            .inputError {
+                border: 2px solid red;
+            }
+            
+            .messageError {
+                color: red;
+                font-size: .5rem;
+            }
+            
+        }
+        
+        .signInCurtain {
+            transition: all .9s cubic-bezier(.6, 1.5, 0, .8) 0s;
+            max-height: 500px;
+            overflow: auto;
+        }
+        
+        .signUpCurtain {
+            transition: all .9s cubic-bezier(.6, 1.5, 0, .8) 0s;
+            max-height: 700px;
+            overflow: auto;
+        }
+    }
+}
