@@ -9,7 +9,7 @@ abstract class AbstractManager {
     
         //Getting the DataBase
         $this->db = new PDO(
-        'mysql:host=db.3wa.io;port=3306;dbname=quentinbruyere_WorldWasteWar',
+        'mysql:host=db.3wa.io;port=3306;dbname=quentinbruyere_test',
         'quentinbruyere',
         'fde1ec0644a19117c0dfa9431a58c26b'
         );
